@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Air 2 App Demo</title><link rel="stylesheet" href="./style.css"></head>
+<body>
+  <main class="prototype" aria-label="Air 2 interactive prototype">
+    <div class="screen" id="screen">
+      <img id="screen-image" alt="Air 2 app screen" draggable="false">
+      <img id="transition-image" alt="" aria-hidden="true" draggable="false">
+      <div id="live-layer" class="live-layer" aria-live="polite"><span id="live-left" class="live-value live-left"></span><span id="live-right" class="live-value live-right"></span><span id="live-timer" class="live-value live-timer"></span><span id="countdown-number" class="countdown-number" hidden></span></div>
+      <div id="fit-layer" class="fit-layer" aria-live="polite" hidden></div>
+      <div id="notification-scrim" class="notification-scrim" aria-hidden="true"></div>
+      <button id="hotspot" class="hotspot" aria-label="Continue"></button>
+      <button id="secondary-hotspot" class="hotspot" aria-label="Secondary action" hidden></button>
+      <div id="hold-progress" class="hold-progress" hidden><i></i></div>
+      <div id="annotation-layer" class="annotation-layer" hidden></div>
+    </div>
+  </main>
+  <aside id="review-toolbar" class="review-toolbar" hidden><strong>Review mode</strong><button id="mark-toggle" type="button">Mark screen</button><button id="copy-notes" type="button">Copy notes</button><button id="export-notes" type="button">Export JSON</button><button id="clear-notes" type="button">Clear</button><p>Tap the screen to place a numbered note.</p></aside>
+  <div id="annotation-editor" class="annotation-editor" hidden><label for="annotation-text">Feedback</label><textarea id="annotation-text" rows="3" placeholder="Describe the change"></textarea><div><button id="annotation-cancel" type="button">Cancel</button><button id="annotation-save" type="button">Save</button></div></div>
+  <script src="./app.js"></script>
+</body>
+</html>

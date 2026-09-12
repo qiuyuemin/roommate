@@ -1,0 +1,16 @@
+/* R44: Figma dock battery and Milk Boost program-card states. */
+#demo .r43-boost-arrow span{font-family:Arial,sans-serif;font-size:31px;font-weight:300;line-height:1;color:#770523;transform:translateY(-2px)}
+#demo .r43-boost-card.r43-boost-manual::after{display:none}
+#demo .r43-boost-manual .r43-boost-switch{color:#8d002b}
+#demo .r43-boost-manual .r43-boost-switch .v4-switch{background:rgba(104,26,50,.22)!important}
+#demo .r43-boost-manual .r43-boost-switch .v4-switch i{transform:translateX(0)!important}
+#demo .r43-boost-program{position:absolute;z-index:2;top:64px;left:20px;right:20px;height:20px;border-radius:12px;background:#ff916f;overflow:hidden}
+#demo .r43-boost-program i{display:block;position:absolute;top:0;bottom:0}
+#demo .r43-program-start{left:0;width:34px;background:#bf5b69}
+#demo .r43-program-middle{left:50%;width:34px;transform:translateX(-50%);background:#ae3b58;border-left:2px solid rgba(255,255,255,.65);border-right:2px solid rgba(255,255,255,.65)}
+#demo .h7-battery.r43-dock-battery{display:inline-flex;align-items:center;gap:5px;height:13px;color:#fff;font-size:12px;line-height:13px;vertical-align:middle}
+#demo .h7-battery.r43-dock-battery>b{font:500 12px/13px Arial,sans-serif;color:#fff}
+#demo .h7-battery.r43-dock-battery>i{position:relative;display:block;width:22px;height:12px;background:none!important}
+#demo .h7-battery.r43-dock-battery .r43-battery-body{position:absolute;left:0;top:1px;display:grid;place-items:center;width:19px;height:10px;border-radius:2px;background:#fff;color:#24111c}
+#demo .h7-battery.r43-dock-battery .r43-battery-body strong{font:700 9px/10px Arial,sans-serif;color:#24111c}
+#demo .h7-battery.r43-dock-battery>i>em{position:absolute;display:block;left:20px;top:4px;width:2px;height:5px;border-radius:0 2px 2px 0;background:rgba(255,255,255,.88)!important;mask:none!important;-webkit-mask:none!important}

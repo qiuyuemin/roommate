@@ -1,0 +1,91 @@
+/* iOS installed-web-app viewport handling.
+   WebKit bug 254868: absolute bottom anchoring can use the wrong containing
+   block with viewport-fit=cover. Fixed positioning targets the real viewport. */
+@media (max-width:600px){
+  html:root,
+  html body{
+    position:static!important;
+    inset:auto!important;
+    width:100vw!important;
+    height:100vh!important;
+    min-width:0!important;
+    min-height:100vh!important;
+    margin:0!important;
+    padding:0!important;
+    overflow:hidden!important;
+  }
+
+  html body #air2-phone-shell,
+  html body #demo,
+  html body #demo>.v4,
+  html body #demo>.screen,
+  html body #demo>.d4-device{
+    position:fixed!important;
+    inset:0!important;
+    width:100vw!important;
+    height:100vh!important;
+    min-height:100vh!important;
+    margin:0!important;
+    padding:0!important;
+    overflow:hidden!important;
+    border-radius:0!important;
+    transform:none!important;
+    zoom:1!important;
+  }
+
+  html body #demo .d4-card,
+  html body #demo .v4-device-card{
+    right:16px!important;
+    left:16px!important;
+    width:auto!important;
+    transform:none!important;
+  }
+}
+
+/* These rules are deliberately limited to the installed app. Safari tabs do
+   not have the WebKit standalone containing-block bug. */
+@media (max-width:600px) and (display-mode:standalone){
+  html body #demo .v4-home-dock,
+  html body #demo .h7-home-dock,
+  html body #demo .home-dock{
+    position:fixed!important;
+    right:0!important;
+    bottom:0!important;
+    left:0!important;
+  }
+
+  html body #demo .v4-nav,
+  html body #demo .d4-nav{
+    position:fixed!important;
+    right:21px!important;
+    bottom:max(18px,env(safe-area-inset-bottom))!important;
+    left:21px!important;
+  }
+
+  html body #demo .v4-control>.v4-start,
+  html body #demo .v4-control>.v4-actions{
+    position:fixed!important;
+    bottom:max(25px,env(safe-area-inset-bottom))!important;
+  }
+}
+
+/* navigator.standalone fallback for older iOS versions whose display-mode
+   media query is unreliable. The JS already applies this class. */
+@media (max-width:600px){
+  html.air2-standalone body #demo .v4-home-dock,
+  html.air2-standalone body #demo .h7-home-dock,
+  html.air2-standalone body #demo .home-dock{
+    position:fixed!important;
+    right:0!important;
+    bottom:0!important;
+    left:0!important;
+  }
+
+  html.air2-standalone body #demo .v4-nav,
+  html.air2-standalone body #demo .d4-nav{
+    position:fixed!important;
+    right:21px!important;
+    bottom:max(18px,env(safe-area-inset-bottom))!important;
+    left:21px!important;
+  }
+}

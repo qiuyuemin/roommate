@@ -1,0 +1,36 @@
+@import url('./review-notes-813.css?v=r111');
+#demo .h7-battery.r49-battery{display:inline-flex;align-items:center;gap:5px;height:13px;color:#fff;font:500 12px/13px Arial,sans-serif;vertical-align:middle}
+#demo .h7-battery.r49-battery>b{color:#fff;font:inherit}
+#demo .h7-battery.r49-battery>i{position:relative;display:block;width:20.006px;height:10px;overflow:visible;background:none!important;font-style:normal}
+#demo .r49-battery-track{position:absolute;z-index:1;top:1px;left:1px;width:17px;height:8px;overflow:hidden;border-radius:1.5px;background:rgba(126,14,55,.34)}
+#demo .r49-battery-fill{position:absolute;inset:0 auto 0 0;width:calc(var(--battery-level) * 1%);min-width:1px;height:100%;border-radius:inherit;background:#fff}
+#demo .r49-battery-shell{position:absolute;z-index:2;inset:0;width:20.006px!important;height:10px!important;object-fit:contain}
+#demo .r49-battery-label{position:absolute;z-index:3;top:-1px;left:0;display:grid;width:17px;height:10px;place-items:center;color:#26121e;font:700 9px/10px Arial,sans-serif;letter-spacing:0}
+/* R50 — Milk Boost states are separate DOM layouts.  These BEM names are
+   intentionally not shared with the manual card, so inherited controls can
+   never place the phase label on top of Auto Switch. */
+#demo .r49-boost-card[data-r49-boost-state]{position:relative!important;display:block!important;box-sizing:border-box!important;width:100%!important;height:130px!important;min-height:130px!important;overflow:hidden!important;border:1px solid #ffc5cf!important;border-radius:24px!important;background:#fff1f3!important;isolation:isolate!important}
+#demo .r49-boost-card[data-r49-boost-state]::before{position:absolute!important;z-index:0!important;inset:0!important;border-radius:inherit!important;content:""!important}
+#demo .r49-boost-card[data-r49-boost-state="stimulation"]::before{background:radial-gradient(115% 112% at 68% 126%,#ff2f8a 0%,#ff69a8 34%,rgba(255,145,188,0) 69%),#fff1f3!important}
+#demo .r49-boost-card[data-r49-boost-state="expression"]::before{background:radial-gradient(120% 110% at 86% 126%,#8f25c9 0%,#b442db 37%,rgba(172,68,213,0) 71%),radial-gradient(75% 90% at 51% 126%,#f85591 0%,rgba(248,85,145,0) 66%),#fff1f3!important}
+#demo .r49-boost-card[data-r49-boost-state="manual"]::before{background:radial-gradient(90% 110% at 4% 120%,rgba(255,173,101,.42),rgba(255,173,101,0) 62%),#fff1f3!important}
+#demo .r49-boost-card .r49-boost__header{position:absolute!important;z-index:2!important;top:16px!important;left:20px!important;right:45px!important;display:flex!important;align-items:center!important;gap:10px!important;height:22px!important;margin:0!important;padding:0!important;white-space:nowrap!important}
+#demo .r49-boost-card .r49-boost__title{display:block!important;color:#3e0010!important;font:600 14px/20px Arial,sans-serif!important}
+#demo .r49-boost-card .r49-boost__timer{display:inline-flex!important;box-sizing:border-box!important;height:22px!important;align-items:center!important;padding:0 8px!important;border:1px solid #e7cbd2!important;border-radius:8px!important;background:rgba(255,255,255,.18)!important;color:#6c3541!important;font:500 12px/20px Arial,sans-serif!important;font-style:normal!important}
+#demo .r49-boost-card .r49-boost__arrow{position:absolute!important;z-index:4!important;top:16px!important;right:16px!important;display:flex!important;align-items:center!important;justify-content:center!important;width:18px!important;height:18px!important;min-width:18px!important;min-height:18px!important;margin:0!important;padding:0!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;transform:none!important;font-size:0!important;line-height:0!important}
+#demo .r49-boost-card .r49-boost__arrow img{display:block!important;width:6.25004px!important;height:11.2501px!important;min-width:6.25004px!important;min-height:11.2501px!important;max-width:6.25004px!important;max-height:11.2501px!important;margin:0!important;transform:none!important;object-fit:fill!important}
+#demo .r49-boost-card .r49-boost__phase{position:absolute!important;z-index:2!important;top:62px!important;right:0!important;left:0!important;display:block!important;margin:0!important;padding:0!important;color:#fff!important;text-align:center!important;font:700 14px/20px Arial,sans-serif!important;line-height:20px!important}
+#demo .r49-boost-card .r49-boost__switch{position:absolute!important;z-index:2!important;right:20px!important;bottom:16px!important;display:flex!important;align-items:center!important;gap:8px!important;height:24px!important;margin:0!important;padding:0!important;color:#fff!important;font:400 14px/20px Arial,sans-serif!important;white-space:nowrap!important}
+#demo .r49-boost-card .r49-boost__switch>span{display:block!important;margin:0!important;padding:0!important;line-height:20px!important}
+#demo .r49-boost-card .r49-boost__switch .v4-switch{position:relative!important;display:block!important;box-sizing:border-box!important;width:42px!important;height:24px!important;flex:0 0 42px!important;margin:0!important;padding:0!important;border:0!important;border-radius:12px!important;background:#000!important;transform:none!important}
+#demo .r49-boost-card .r49-boost__switch .v4-switch i{position:absolute!important;top:3px!important;left:3px!important;display:block!important;width:18px!important;height:18px!important;border-radius:50%!important;background:#fff!important;transform:none!important;transition:transform .2s ease!important}
+#demo .r49-boost-card .r49-boost__switch .v4-switch.on i{transform:translateX(18px)!important}
+#demo .r49-boost-card .r49-boost__program{position:absolute!important;z-index:2!important;top:61px!important;right:20px!important;left:20px!important;display:block!important;height:20px!important;overflow:hidden!important;border-radius:10px!important;background:#ff916b!important}
+#demo .r49-boost-card .r49-boost__program i,#demo .r49-boost-card .r49-boost__program b{position:absolute!important;top:0!important;display:block!important;height:20px!important;margin:0!important;padding:0!important;background:#b6475b!important;content:""!important}
+#demo .r49-boost-card .r49-boost__program i{left:0!important;width:10%!important;border-right:1px solid #fff!important}
+#demo .r49-boost-card .r49-boost__program b{left:50%!important;width:10%!important;border-right:1px solid #fff!important;border-left:1px solid #fff!important;background:#a43b58!important}
+#demo .r49-boost-card[data-r49-boost-state="manual"] .r49-boost__phase{display:none!important}
+#demo .r49-boost-card[data-r49-boost-state="manual"] .r49-boost__switch{color:#85001f!important}
+#demo .r49-boost-card[data-r49-boost-state="manual"] .r49-boost__switch .v4-switch{background:rgba(62,0,16,.20)!important}
+#demo .r49-boost-card[data-r49-boost-state="manual"] .r49-boost__switch .v4-switch.on{background:#000!important}
+#demo .r49-boost-card[data-r49-boost-state="stimulation"] .r49-boost__program,#demo .r49-boost-card[data-r49-boost-state="expression"] .r49-boost__program{display:none!important}

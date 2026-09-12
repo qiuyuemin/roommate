@@ -1,0 +1,11 @@
+/* Keep the live milk vessel silhouette visible against the warm page background.
+   The previous double-mask outline is unreliable in WebKit once the right bowl
+   is mirrored, so use the rendered SVG silhouette as the outline source. */
+#demo .v4-control .c32-vessel::after{display:none!important}
+#demo .v4-control .c32-vessel .c32-base{
+  filter:
+    drop-shadow(1px 0 0 rgba(225,116,135,.72))
+    drop-shadow(-1px 0 0 rgba(225,116,135,.72))
+    drop-shadow(0 1px 0 rgba(225,116,135,.72))
+    drop-shadow(0 -1px 0 rgba(225,116,135,.72))!important;
+}

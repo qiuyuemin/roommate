@@ -1,0 +1,6 @@
+/* A battery is a percentage-filled meter, not a solid label. */
+#demo .h7-battery.r43-dock-battery .r43-battery-body {
+  background:linear-gradient(90deg,rgba(255,255,255,.98) 0 var(--r44-level),rgba(255,255,255,.26) var(--r44-level) 100%) !important;
+  border-color:rgba(255,255,255,.94);
+}
+#demo .h7-battery.r43-dock-battery .r43-battery-body::before { display:none; }

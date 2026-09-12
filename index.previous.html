@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Air 2 · Interactive Demo</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="demo-shell">
+      <aside class="demo-note" aria-label="Demo guide">
+        <p class="eyebrow">AIR 2 · INTERACTIVE H5</p>
+        <h1>Follow the pumping journey.</h1>
+        <p>Start pumping, complete the fit check, turn on Auto Switch, simulate let-down, choose Milk Boost, then end and save the session.</p>
+        <button class="link-button" id="restart-demo">Restart demo</button>
+      </aside>
+
+      <section class="phone" aria-label="Air 2 pump control demo">
+        <div class="statusbar"><span>9:41</span><span>●●●  ▰▰▰</span></div>
+        <header class="app-header">
+          <button class="icon-button" id="back-button" aria-label="Go back">‹</button>
+          <div>
+            <p class="header-label" id="header-label">Connected</p>
+            <h2 id="screen-title">Pump Control</h2>
+          </div>
+          <button class="icon-button" id="more-button" aria-label="More options">•••</button>
+        </header>
+
+        <div class="device-hero" id="device-hero">
+          <div class="device-halo"></div>
+          <img src="./assets/air2-pumps.png" alt="Two connected Air 2 pumps" />
+          <div class="connection-pill"><span></span> Air 2 connected</div>
+        </div>
+
+        <section class="control-card" aria-live="polite">
+          <div class="mode-heading">
+            <div>
+              <p class="section-kicker" id="mode-kicker">READY TO PUMP</p>
+              <h3 id="mode-name">Start your session</h3>
+            </div>
+            <time id="timer" hidden>00:00</time>
+          </div>
+
+          <div class="session-visual" id="session-visual">
+            <div class="wave wave-one"></div>
+            <div class="wave wave-two"></div>
+            <p id="session-message">Your pumps are ready when you are.</p>
+          </div>
+
+          <div class="auto-row" id="auto-row" hidden>
+            <div>
+              <strong>Auto Switch</strong>
+              <span id="auto-status">Off</span>
+            </div>
+            <button class="switch" id="auto-switch" aria-label="Enable Auto Switch" aria-pressed="false"><i></i></button>
+          </div>
+
+          <div class="levels" id="levels" hidden>
+            <div><span>L Level</span><b id="left-level">4</b><em>− &nbsp;&nbsp; +</em></div>
+            <div><span>Speed</span><b id="speed-level">3</b><em>− &nbsp;&nbsp; +</em></div>
+            <div><span>R Level</span><b id="right-level">4</b><em>− &nbsp;&nbsp; +</em></div>
+          </div>
+        </section>
+
+        <section class="program-card" id="program-card">
+          <div>
+            <p class="section-kicker">PROGRAM</p>
+            <h3 id="program-name">Manual control</h3>
+            <p id="program-detail">Control suction independently.</p>
+          </div>
+          <button class="chevron-button" id="open-programs" aria-label="Choose a program">›</button>
+        </section>
+
+        <section class="demo-action" id="demo-action" hidden>
+          <p>Demo action</p>
+          <button id="simulate-letdown">Simulate milk let-down</button>
+        </section>
+
+        <footer class="bottom-action">
+          <button class="primary-button" id="primary-action">Start pumping</button>
+        </footer>
+
+        <div class="modal-layer" id="modal-layer" aria-live="assertive"></div>
+      </section>
+    </main>
+    <script src="./app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,352 @@
+/* Auto Switch is visually merged with the mode/program card.
+   Default state stays calm; active state only adds a soft outer breathing glow. */
+
+#demo .v4-controls > .v4-manual-card,
+#demo .v4-controls > .v4-auto-card,
+#demo .v4-controls > .r49-boost-card {
+  margin-bottom: 0 !important;
+  border-bottom-color: rgba(255, 218, 225, .52) !important;
+  border-radius: 24px 24px 0 0 !important;
+  box-shadow: 0 7px 18px rgba(74, 17, 37, .035) !important;
+}
+
+#demo .auto-switch-component {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  height: 68px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: -1px;
+  padding: 0 16px 0 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 218, 225, .78);
+  border-top-color: rgba(139, 0, 43, .055);
+  border-radius: 0 0 24px 24px;
+  background: linear-gradient(112deg, rgba(255, 250, 251, .94), rgba(255, 245, 247, .9));
+  box-shadow: 0 8px 18px rgba(74, 17, 37, .035);
+}
+
+#demo .auto-switch-component::before {
+  position: absolute;
+  top: 0;
+  right: 22px;
+  left: 22px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(139, 0, 43, 0), rgba(139, 0, 43, .075), rgba(139, 0, 43, 0));
+  content: "";
+  pointer-events: none;
+}
+
+#demo .auto-switch-component__icon {
+  position: relative;
+  display: grid;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  margin-right: 10px;
+  place-items: center;
+  border: 1px solid rgba(139, 0, 43, .09);
+  border-radius: 13px;
+  background: linear-gradient(145deg, rgba(255, 250, 251, .96), rgba(255, 237, 242, .82));
+  color: rgba(139, 0, 43, .72);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .9), 0 3px 8px rgba(139, 0, 43, .045);
+}
+
+#demo .auto-switch-component__icon i {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border: 1px solid rgba(139, 0, 43, .16);
+  border-radius: 50%;
+}
+
+#demo .auto-switch-component__icon b { position: relative; font: 700 13px/1 Arial, sans-serif; }
+
+#demo .auto-switch-component__copy {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  gap: 2px;
+}
+
+#demo .auto-switch-component__copy > span { display: flex; align-items: center; gap: 7px; }
+#demo .auto-switch-component__copy b { color: rgba(62, 0, 16, .88); font: 600 14px/18px Arial, sans-serif; }
+#demo .auto-switch-component__copy em {
+  display: inline-flex;
+  height: 15px;
+  align-items: center;
+  padding: 0 5px;
+  border-radius: 5px;
+  background: rgba(139, 0, 43, .055);
+  color: rgba(139, 0, 43, .5);
+  font: 700 8px/15px Arial, sans-serif;
+  font-style: normal;
+  letter-spacing: .5px;
+}
+
+#demo .auto-switch-component__copy small {
+  overflow: hidden;
+  color: rgba(62, 0, 16, .42);
+  font: 400 9px/13px Arial, sans-serif;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#demo .auto-switch-component .v4-switch { flex: 0 0 42px; margin-left: 12px; }
+#demo .auto-switch-component .v4-switch i { z-index: 2; }
+
+/* Keep all mode/program card variants the same height, so toggling Auto Switch
+   does not move the level and speed cards below. */
+#demo .v4-manual-card.c35-manual,
+#demo .v4-auto-card.r54-auto-card:not(.r55-program-flow),
+#demo .v4-auto-card.r54-auto-card.r55-program-flow,
+#demo .v4-auto-card.r43-boost-card,
+#demo .r43-boost-card,
+#demo .r49-boost-card.r55-program-flow,
+#demo .r49-boost-card[data-r49-boost-state] {
+  height: 104px !important;
+  min-height: 104px !important;
+  max-height: 104px !important;
+}
+
+#demo .r49-boost-card .r49-boost__phase { top: 55px !important; }
+#demo .r49-boost-card .r49-boost__program { top: 57px !important; }
+#demo .r49-boost-card.r55-program-flow .r49-boost__phase,
+#demo .v4-auto-card.r54-auto-card.r55-program-flow .r49-boost__phase { top: 55px !important; }
+#demo .r49-boost-card.r55-program-flow .r49-boost__program,
+#demo .v4-auto-card.r54-auto-card.r55-program-flow .r49-boost__program { top: 56px !important; height: 18px !important; border-radius: 9px !important; }
+#demo .r49-boost-card.r55-program-flow .r49-boost__program i,
+#demo .r49-boost-card.r55-program-flow .r49-boost__program b,
+#demo .v4-auto-card.r54-auto-card.r55-program-flow .r49-boost__program i,
+#demo .v4-auto-card.r54-auto-card.r55-program-flow .r49-boost__program b { height: 18px !important; }
+#demo .r43-boost-card .r43-boost-phase { top: 55px !important; }
+#demo .r43-boost-card .r43-boost-program { top: 56px !important; height: 18px !important; border-radius: 9px !important; }
+#demo .r43-boost-card .r43-boost-program i { height: 18px !important; }
+#demo .v4-controls > .auto-switch-component + .v4-levels { margin-top: 16px !important; }
+
+/* Active Auto Switch: keep internals basically unchanged; use a restrained
+   moving edge-light to make the whole combined card feel "awake". */
+#demo .v4-controls.auto-switch-ring-on > .v4-manual-card,
+#demo .v4-controls.auto-switch-ring-on > .v4-auto-card,
+#demo .v4-controls.auto-switch-ring-on > .r49-boost-card {
+  border-color: rgba(255, 218, 225, .62) !important;
+  background: #fff7f8 !important;
+  box-shadow: 0 7px 18px rgba(74, 17, 37, .035) !important;
+  animation: none !important;
+  transform: none !important;
+}
+
+#demo .v4-controls.auto-switch-ring-on > .auto-switch-component {
+  border-color: rgba(255, 218, 225, .78) !important;
+  border-top-color: rgba(139, 0, 43, .055) !important;
+  background: linear-gradient(112deg, rgba(255, 250, 251, .94), rgba(255, 245, 247, .9)) !important;
+  box-shadow: 0 8px 18px rgba(74, 17, 37, .035) !important;
+  animation: none !important;
+}
+
+#demo .v4-controls.auto-switch-ring-on > .auto-switch-component .auto-switch-component__icon {
+  border: 1px solid rgba(255, 126, 168, .52) !important;
+  background: linear-gradient(145deg, #d64a7e 0%, #b90f4a 48%, #8f002e 100%) !important;
+  color: #fff !important;
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, .38),
+    0 0 0 4px rgba(185, 15, 74, .08),
+    0 7px 18px rgba(139, 0, 43, .20) !important;
+  animation: autoSwitchIconBreath 2.6s ease-in-out infinite !important;
+}
+
+#demo .v4-controls.auto-switch-ring-on > .auto-switch-component .auto-switch-component__icon i {
+  border-color: rgba(255, 255, 255, .58) !important;
+  box-shadow: 0 0 8px rgba(255, 255, 255, .24) !important;
+  animation: autoSwitchInnerCircleBreath 2.1s ease-in-out infinite !important;
+}
+
+#demo .v4-controls.auto-switch-ring-on > .auto-switch-component .auto-switch-component__copy em {
+  background: linear-gradient(180deg, #b90f4a, #8f002e) !important;
+  color: #fff !important;
+  box-shadow: 0 4px 10px rgba(139, 0, 43, .16) !important;
+}
+
+#demo .v4-controls.auto-switch-ring-on > .auto-switch-component .v4-switch.on {
+  position: relative !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, .10),
+    0 4px 10px rgba(36, 15, 27, .10) !important;
+}
+
+#demo .v4-controls.auto-switch-ring-on > .auto-switch-component .v4-switch.on::before {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  box-sizing: border-box;
+  border-radius: inherit;
+  background:
+    conic-gradient(from var(--autoSwitchToggleAngle, 0deg) at 50% 50%,
+      rgba(255, 255, 255, 0) 0deg,
+      rgba(255, 255, 255, 0) 42deg,
+      rgba(185, 15, 74, .52) 58deg,
+      rgba(255, 232, 240, .96) 70deg,
+      rgba(185, 15, 74, .44) 82deg,
+      rgba(255, 255, 255, 0) 104deg,
+      rgba(255, 255, 255, 0) 360deg);
+  content: "";
+  padding: 1.5px;
+  pointer-events: none;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  filter: drop-shadow(0 0 4px rgba(185, 15, 74, .24));
+  animation: autoSwitchToggleEdgeFlow 3.2s linear infinite, autoSwitchToggleEdgeBreath 2.8s ease-in-out infinite;
+}
+
+#demo .v4-control > .v4-controls.auto-switch-ring-on {
+  position: relative !important;
+  overflow: visible !important;
+}
+
+#demo .v4-control > .v4-controls.auto-switch-ring-on::before {
+  position: absolute;
+  z-index: 9;
+  top: 0;
+  right: 16px;
+  left: 16px;
+  display: block;
+  box-sizing: border-box;
+  height: 171px;
+  border: 1px solid rgba(255, 196, 213, .72);
+  border-radius: 24px;
+  background:
+    linear-gradient(180deg, rgba(255, 248, 250, .05), rgba(255, 248, 250, .03)) border-box;
+  box-shadow:
+    0 0 8px rgba(255, 96, 146, .10),
+    inset 0 0 10px rgba(255, 150, 184, .045);
+  opacity: .62;
+  content: "";
+  pointer-events: none;
+  animation: autoSwitchEdgeWake 3.6s ease-in-out infinite;
+}
+
+#demo .v4-control > .v4-controls.auto-switch-ring-on::after {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  right: 16px;
+  left: 16px;
+  display: block;
+  box-sizing: border-box;
+  height: 171px;
+  border-radius: 24px;
+  background:
+    conic-gradient(from var(--autoSwitchAngle, 0deg) at 50% 50%,
+      rgba(255, 255, 255, 0) 0deg,
+      rgba(255, 255, 255, 0) 34deg,
+      rgba(185, 15, 74, .56) 48deg,
+      rgba(255, 232, 240, .95) 58deg,
+      rgba(185, 15, 74, .44) 70deg,
+      rgba(255, 255, 255, 0) 92deg,
+      rgba(255, 255, 255, 0) 360deg);
+  content: "";
+  opacity: .68;
+  pointer-events: none;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  padding: 1.5px;
+  filter: drop-shadow(0 0 5px rgba(185, 15, 74, .24));
+  animation: autoSwitchEdgeFlow 5.2s linear infinite, autoSwitchEdgeBreath 3.6s ease-in-out infinite;
+}
+
+@property --autoSwitchAngle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@property --autoSwitchToggleAngle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes autoSwitchEdgeWake {
+  0%, 100% {
+    opacity: .42;
+    box-shadow:
+      0 0 5px rgba(255, 96, 146, .07),
+      inset 0 0 8px rgba(255, 150, 184, .035);
+  }
+  50% {
+    opacity: .72;
+    box-shadow:
+      0 0 9px rgba(255, 96, 146, .13),
+      inset 0 0 12px rgba(255, 150, 184, .06);
+  }
+}
+
+@keyframes autoSwitchEdgeFlow {
+  to { --autoSwitchAngle: 360deg; }
+}
+
+@keyframes autoSwitchToggleEdgeFlow {
+  to { --autoSwitchToggleAngle: 360deg; }
+}
+
+@keyframes autoSwitchToggleEdgeBreath {
+  0%, 100% { opacity: .52; }
+  50% { opacity: .86; }
+}
+
+@keyframes autoSwitchIconBreath {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow:
+      inset 0 1px 1px rgba(255, 255, 255, .34),
+      0 0 0 3px rgba(185, 15, 74, .07),
+      0 6px 14px rgba(139, 0, 43, .16);
+  }
+  50% {
+    transform: scale(1.035);
+    box-shadow:
+      inset 0 1px 1px rgba(255, 255, 255, .44),
+      0 0 0 6px rgba(185, 15, 74, .11),
+      0 9px 22px rgba(139, 0, 43, .24);
+  }
+}
+
+@keyframes autoSwitchInnerCircleBreath {
+  0%, 100% {
+    opacity: .68;
+    transform: scale(.94);
+    box-shadow: 0 0 5px rgba(255, 255, 255, .18);
+  }
+  50% {
+    opacity: .98;
+    transform: scale(1.08);
+    box-shadow: 0 0 11px rgba(255, 255, 255, .42);
+  }
+}
+
+@keyframes autoSwitchEdgeBreath {
+  0%, 100% { opacity: .42; }
+  50% { opacity: .78; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #demo .v4-control > .v4-controls.auto-switch-ring-on::before,
+  #demo .v4-control > .v4-controls.auto-switch-ring-on::after,
+  #demo .v4-controls.auto-switch-ring-on > .auto-switch-component .auto-switch-component__icon,
+  #demo .v4-controls.auto-switch-ring-on > .auto-switch-component .auto-switch-component__icon i,
+  #demo .v4-controls.auto-switch-ring-on > .auto-switch-component .v4-switch.on::before { animation: none !important; }
+}
+
+/* Hold to Finish must be a real 2-second hold. The fill travels left-to-right;
+   releasing before it reaches the end cancels the finish action. */
+#demo .v4-finish.holding::after {
+  animation-duration: 2s !important;
+}

@@ -1,0 +1,2 @@
+/* The provided R artwork is already the correct right-hand vessel; do not cancel its required mirror transform. */
+.c32-right .c32-base,.c32-right .c32-liquid-clip{transform:scaleX(-1)!important;transform-origin:center!important}

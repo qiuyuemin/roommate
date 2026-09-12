@@ -1,0 +1,5 @@
+/* Second visual pass: match the approved empty-home screenshot. */
+.h7-home .h7-trend-open img{opacity:.44!important}
+.h7-home .r2-home-empty .v4-lactation .mother,.h7-home.r2-home-empty .v4-lactation .mother{width:168.24px!important;height:199.107px!important;margin:28px auto -29px!important}
+.h7-home-dock{background:linear-gradient(90deg,#770523 0%,#a61d46 49%,#ee9ca7 100%)!important}
+.h7-dock-chevron img{transform:rotate(180deg)}

@@ -1,0 +1,15 @@
+.status,.v4-status,.d4-status{display:none!important}
+html,body{width:100%;height:100%;margin:0;overflow:hidden;background:#f9f7f5}
+
+/* Mobile owns the real viewport. No scale, zoom, height fitting, synthetic
+   safe-area height, or background cover layer. */
+@media (max-width:600px){
+  html,body{position:fixed;inset:0;width:100%;height:100%;min-height:0;overflow:hidden}
+  #air2-phone-shell{position:fixed!important;inset:0!important;width:100%!important;height:100%!important;margin:0!important;overflow:hidden!important;transform:none!important}
+  #demo{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;min-height:0!important;overflow:hidden!important;transform:none!important}
+  #demo>.v4,#demo>.screen,#demo>.d4-device{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;min-height:0!important}
+  #demo .d4-card,#demo .v4-device-card{right:16px!important;left:16px!important;width:auto!important}
+  #demo .v4-home-dock,#demo .h7-home-dock,#demo .home-dock{position:absolute!important;right:0!important;bottom:0!important;left:0!important}
+  #demo .v4-nav,#demo .d4-nav{position:absolute!important;bottom:18px!important}
+  #demo .v4-control>.v4-start,#demo .v4-control>.v4-actions{position:absolute!important;bottom:25px!important}
+}

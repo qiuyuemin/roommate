@@ -1,0 +1,11 @@
+{
+  "name": "Air 2",
+  "short_name": "Air 2",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "fullscreen"],
+  "background_color": "#f9f7f5",
+  "theme_color": "#f9f7f5",
+  "orientation": "portrait"
+}

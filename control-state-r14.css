@@ -1,0 +1,14 @@
+/* Expression alone must not tint the control page. */
+.v4-control.expression{background:#f9f7f5!important}
+.v4-control.expression .r2-expression-bg{display:none!important}
+.v4-control.expression:has(.v4-switch-note){background:linear-gradient(180deg,#ffdadd 0,#fff4c8 45%,#f9f7f5 72%)!important}
+.v4-control.expression:has(.v4-switch-note) .r2-expression-bg{display:block!important;opacity:.9}
+
+/* Figma 15:11530 empty vessel state: no flow drops before mock data is wired. */
+.c14-empty-pump .r2-pod{overflow:visible!important}
+.c14-empty-pump .r2-pod .r2-drops,.c14-empty-pump .r2-pod .r2-milk-level{display:none!important}
+.c14-empty-pump .amount{top:157px!important;color:#3e0010!important;font:500 14px/18px var(--font)!important}
+
+/* Figma 18:11655 inactive Stimulation uses its wine heart asset, never white. */
+.v4-mode-tabs button:not(.active)[data-mode="stimulation"] img{width:11px!important;height:10px!important;filter:none!important}
+.v4-mode-tabs button:not(.active)[data-mode="stimulation"]{color:#a59da2!important}

@@ -1,0 +1,2 @@
+/* Visual spring displacement, independent from final L/R values. */
+#demo .v4-both-box[data-drag="-3"] .v4-both-knob{top:108px!important}#demo .v4-both-box[data-drag="-2"] .v4-both-knob{top:94px!important}#demo .v4-both-box[data-drag="-1"] .v4-both-knob{top:80px!important}#demo .v4-both-box[data-drag="0"] .v4-both-knob{top:66px!important}#demo .v4-both-box[data-drag="1"] .v4-both-knob{top:52px!important}#demo .v4-both-box[data-drag="2"] .v4-both-knob{top:38px!important}#demo .v4-both-box[data-drag="3"] .v4-both-knob{top:24px!important}

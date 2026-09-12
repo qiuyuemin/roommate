@@ -1,0 +1,5 @@
+/* Review note: empty-state record group is 24px too high. */
+.h7-home.r2-home-empty .v4-lactation .mother{margin:28px auto -5px!important}
+
+/* Exact Figma node 7:9876 gradient (angle and color stops). */
+.h7-home-dock{background:linear-gradient(-32.474964deg,rgb(238,156,167) 32.448%,rgb(119,5,35) 74.233%)!important}

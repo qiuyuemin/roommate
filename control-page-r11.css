@@ -1,0 +1,19 @@
+/* Figma 15:10986 — settings icon uses a 21.5px gear plus an 8.5px center. */
+.v4-control .r2-settings{position:relative;width:24px;height:24px}
+.v4-control .r2-settings img:first-child{inset:1.25px!important;width:21.5px!important;height:21.5px!important}
+.v4-control .r2-settings img:last-child{inset:7.75px!important;width:8.5px!important;height:8.5px!important}
+
+/* Figma 7:10252 — each 180px column contains one 100px crop, not the complete 210px source. */
+.v4-control .r2-hardware{top:0!important;width:100px!important;height:100px!important;overflow:hidden!important}
+.v4-control .v4-pump:not(.right) .r2-hardware{left:53px!important}
+.v4-control .v4-pump.right .r2-hardware{left:32px!important}
+.v4-control .v4-pump:not(.right) .r2-hardware img{top:-2.04px!important;left:-.05px!important;width:210.34px!important;height:102.04px!important}
+.v4-control .v4-pump.right .r2-hardware img{top:-2.36px!important;left:-106.74px!important;width:210.34px!important;height:102.36px!important}
+.v4-control .r2-reflection{width:100px!important;height:76px!important}
+.v4-control .v4-pump:not(.right) .r2-reflection{left:53px!important}
+.v4-control .v4-pump.right .r2-reflection{left:32px!important}
+.v4-control .v4-pump:not(.right) .r2-reflection img{left:-.05px!important}
+.v4-control .v4-pump.right .r2-reflection img{left:-106.74px!important}
+
+/* Figma 15:10995 is a right-facing disclosure control. */
+.v4-control .r2-card-arrow img{transform:rotate(180deg)}

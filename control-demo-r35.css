@@ -1,0 +1,17 @@
+/* Center the device card in its phone canvas, independent of the outer responsive shell. */
+#air2-phone-shell .d4-card{left:50%!important;transform:translateX(-50%)}
+/* The knob always returns to its center coordinate after a release. */
+#demo .v4-both-box{pointer-events:auto!important;touch-action:none!important;user-select:none!important;-webkit-user-select:none!important;cursor:ns-resize}
+#demo .v4-both-box *{pointer-events:none}
+#demo .v4-both-knob{top:66px!important;transition:top .22s cubic-bezier(.18,.85,.25,1)!important}
+#demo .v4-both-box[data-dragging="true"] .v4-both-knob{transition:none!important}
+#demo .c35-time{display:inline-flex!important;align-items:center;vertical-align:middle;margin-left:10px;padding:3px 9px;border:1px solid #e6d1d5;border-radius:11px;color:#6e3843;font-size:15px;font-style:normal;font-weight:600;line-height:1.1;background:rgba(255,255,255,.34)}
+/* Dedicated control notification: local page background changes, then content fades in and out. */
+#demo .v4-control.has-c36-notice:before{position:absolute;z-index:0;inset:0;opacity:0;background:linear-gradient(180deg,#ffdadc 0%,#fff0bf 37%,rgba(249,247,245,0) 64%);animation:c36-bg 3.6s ease both;content:""}
+#demo .c36-notice{position:absolute;z-index:6;top:127px;right:29px;left:29px;min-height:43px;display:grid;place-items:center;text-align:center;pointer-events:none;animation:c36-notice 3.6s ease both}
+#demo .c36-notice p{max-width:296px;margin:0;color:#694b45;font-size:12px;line-height:17px;font-weight:500}
+#demo .v4-control.has-c36-notice .v4-pump-row{top:183px!important}
+@keyframes c36-bg{0%{opacity:0}13%,78%{opacity:1}100%{opacity:0}}
+@keyframes c36-notice{0%,12%{opacity:0;transform:translateY(8px)}22%,76%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(-4px)}}
+/* Pause freezes every fluid layer, without resetting the accumulated fill. */
+#demo .c32-flow-paused .c32-liquid svg,#demo .c32-flow-paused .c32-drops img{animation-play-state:paused!important}

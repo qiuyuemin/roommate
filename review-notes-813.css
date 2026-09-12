@@ -1,0 +1,195 @@
+/* Figma 49:14539 — exact 20.006 × 10 battery, proportional white fill. */
+#demo .h7-battery.r49-battery{gap:6px!important;height:18px!important;font:400 12px/18px var(--font,Arial),sans-serif!important;letter-spacing:.24px!important}
+#demo .h7-battery.r49-battery>i{width:20.006px!important;height:12px!important}
+#demo .r49-battery-track{top:1px!important;left:0!important;width:17px!important;height:10px!important;border-radius:1px!important;background:transparent!important}
+#demo .r49-battery-fill{height:10px!important;background:#fff!important}
+#demo .r49-battery-shell{top:1px!important;width:20.006px!important;height:10px!important}
+#demo .r49-battery-label{top:-3px!important;left:5px!important;width:10px!important;height:18px!important;color:#131313!important;font:600 8px/18px var(--font,Arial),sans-serif!important;letter-spacing:.16px!important}
+
+/* Keep the native 13.333 × 17.718 droplet ratio; never stretch it. */
+#demo .r2-list-card .mode-icon[src*="list-expression.svg"]{width:14px!important;height:18px!important;object-fit:contain!important}
+
+/* Running vessels: retain the Figma silhouette, add its missing rim, and give
+   the milk a visibly curved, continuously travelling surface. */
+#demo .v4-control .c32-vessel{filter:none!important}
+#demo .c32-base{z-index:1!important;pointer-events:none}
+#demo .c32-liquid-clip{z-index:2!important}
+#demo .c32-liquid{overflow:visible!important;background:#fff!important;transition:height .7s cubic-bezier(.25,.8,.25,1)!important}
+#demo .c32-liquid svg{top:-9px!important;left:-100%!important;width:300%!important;height:22px!important;fill:#fff!important;animation:r53-milk-wave 2.4s linear infinite!important}
+#demo .c32-liquid i{top:5px!important;background:#fff!important}
+#demo .c32-pump .c32-liquid{height:min(var(--liquid-height),94px)!important}
+#demo .c32-liquid[style*="--liquid-height:0px"]{display:none!important}
+#demo .c32-drops{top:8px!important;left:23px!important;width:45px!important;height:60px!important;overflow:hidden!important}
+#demo .c32-drops img{width:8.4px!important;height:11.2px!important;object-fit:contain!important;filter:drop-shadow(0 1px 1px rgba(255,255,255,.18));will-change:transform,opacity}
+#demo .c32-drops-low img{animation:r53-drop-low 2.15s cubic-bezier(.35,.05,.7,.42) infinite!important}
+#demo .c32-drops-medium img{animation:r53-drop-medium 1.3s cubic-bezier(.35,.05,.7,.42) infinite!important;animation-delay:calc(var(--drop)*-.31s)!important}
+#demo .c32-drops-high img{animation:r53-drop-high .82s cubic-bezier(.35,.05,.7,.42) infinite!important;animation-delay:calc(var(--drop)*-.13s)!important}
+@keyframes r53-milk-wave{0%{transform:translateX(0) translateY(0)}50%{transform:translateX(16.666%) translateY(-1px)}100%{transform:translateX(33.333%) translateY(0)}}
+@keyframes r53-drop-low{0%,26%{opacity:0;transform:translate(0,-7px) scale(.76)}38%{opacity:.95}82%{opacity:.95}100%{opacity:0;transform:translate(1px,45px) scale(1)}}
+@keyframes r53-drop-medium{0%{opacity:0;transform:translateY(-9px) scale(.78)}14%{opacity:.95}78%{opacity:.95}100%{opacity:0;transform:translateY(43px) scale(1)}}
+@keyframes r53-drop-high{0%{opacity:0;transform:translateY(-8px) scale(.8)}12%{opacity:1}76%{opacity:1}100%{opacity:0;transform:translateY(39px) scale(1)}}
+
+@media (prefers-reduced-motion:reduce){#demo .c32-liquid svg,#demo .c32-drops img{animation:none!important}}
+
+/* The knob centre is the milk surface. At full capacity both may reach the
+   absolute top; no artificial 9% inset is applied. */
+#demo .r47-log-vessel button{top:var(--knob-top)!important}
+
+/* log-milk.svg only contains pixels below y=55, so clipping it to 100% can
+   never visually fill the upper part of the bowl. Paint the milk through the
+   complete bowl silhouette instead. The same --fill value drives this
+   surface, the knob centre and the numeric amount. */
+#demo .r47-log-vessel::before{position:absolute!important;z-index:2!important;top:0!important;left:4px!important;display:block!important;width:132px!important;height:149px!important;background:#fff!important;content:""!important;-webkit-mask:top left/100% 100% no-repeat url('./assets/figma-review-r2/log-l.svg')!important;mask:top left/100% 100% no-repeat url('./assets/figma-review-r2/log-l.svg')!important;-webkit-clip-path:inset(var(--knob-top) 0 0 0)!important;clip-path:inset(var(--knob-top) 0 0 0)!important;transition:clip-path .16s linear,-webkit-clip-path .16s linear!important;pointer-events:none!important}
+#demo .r47-log-r::before{-webkit-mask-image:url('./assets/figma-review-r2/log-r.svg')!important;mask-image:url('./assets/figma-review-r2/log-r.svg')!important}
+#demo .r47-log-vessel::after{position:absolute!important;z-index:3!important;top:0!important;left:4px!important;display:block!important;width:132px!important;height:149px!important;background:#ee9ca7!important;content:""!important;-webkit-mask-image:url('./assets/figma-review-r2/log-l.svg'),url('./assets/figma-review-r2/log-l.svg')!important;-webkit-mask-position:center,center!important;-webkit-mask-size:100% 100%,calc(100% - 4px) calc(100% - 4px)!important;-webkit-mask-repeat:no-repeat,no-repeat!important;-webkit-mask-composite:xor!important;mask-image:url('./assets/figma-review-r2/log-l.svg'),url('./assets/figma-review-r2/log-l.svg')!important;mask-position:center,center!important;mask-size:100% 100%,calc(100% - 4px) calc(100% - 4px)!important;mask-repeat:no-repeat,no-repeat!important;mask-composite:exclude!important;pointer-events:none!important}
+#demo .r47-log-r::after{-webkit-mask-image:url('./assets/figma-review-r2/log-r.svg'),url('./assets/figma-review-r2/log-r.svg')!important;mask-image:url('./assets/figma-review-r2/log-r.svg'),url('./assets/figma-review-r2/log-r.svg')!important}
+#demo .r47-log-liquid{display:none!important}
+
+/* Both/BOSS travel uses tick centres as its endpoints. The rail ticks run
+   from y=21 to y=149 inside the 170px box; with a 36px knob that means top
+   positions 3px and 131px. The old ±3 positions (24/108) shortened the
+   travel by 43px and could never touch either end tick. */
+#demo .v4-both-hit[data-drag="3"] .v4-both-knob{top:3px!important}
+#demo .v4-both-hit[data-drag="2"] .v4-both-knob{top:24.33px!important}
+#demo .v4-both-hit[data-drag="1"] .v4-both-knob{top:45.67px!important}
+#demo .v4-both-hit[data-drag="0"] .v4-both-knob{top:67px!important}
+#demo .v4-both-hit[data-drag="-1"] .v4-both-knob{top:88.33px!important}
+#demo .v4-both-hit[data-drag="-2"] .v4-both-knob{top:109.67px!important}
+#demo .v4-both-hit[data-drag="-3"] .v4-both-knob{top:131px!important}
+
+/* Continuous Catmull-Rom/Cubic trend instead of rotated line fragments. */
+#demo .r53-trend-track{position:relative;height:151px;background:repeating-linear-gradient(to bottom,rgba(124,111,118,.18) 0 1px,transparent 1px 41.6px)}
+#demo .r53-trend-track svg{position:absolute;top:0;left:0;width:100%;height:125px;overflow:visible}
+#demo .r53-trend-track path{fill:none;stroke:#9e3150;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+#demo .r53-trend-track circle{fill:#3e0010;stroke:#fff;stroke-width:1.5;vector-effect:non-scaling-stroke}
+#demo .r53-trend-day{position:absolute;top:0;width:46px;height:151px;padding:0;border:0;border-right:1px dashed rgba(124,111,118,.16);background:transparent}
+#demo .r53-trend-day>span{position:absolute;top:132px;left:0;width:100%;color:#7c6f76;font:400 10px/9px var(--font);text-align:center}
+#demo .r53-trend-day small{display:block;margin-top:8px;font-size:10px}
+#demo .r53-real-sessions{gap:24px!important;padding-left:18px}
+#demo .r53-real-session>i{bottom:18px!important}
+#demo .r53-lactation-summary{justify-content:flex-start}
+#demo .r55-add-session{position:relative;width:40px;height:134px;flex:0 0 40px;padding:0;border:1px dashed #240f1b;border-radius:8px;background:#f9f7f5}
+#demo .r55-add-session img{position:absolute;top:50%;left:50%;display:block;width:18px!important;height:18px!important;transform:translate(-50%,-50%);object-fit:contain}
+#demo .r55-add-session>span{position:absolute;top:143px;left:0;width:100%;height:9px}
+
+/* Stable gradient canvas: it stays underneath the controls and only its large,
+   masked colour field rotates/translates. The top-left quadrant is fully clear. */
+#demo .r54-auto-card{position:relative!important;isolation:isolate!important;overflow:hidden!important;background:#fff1f3!important}
+#demo .r54-auto-card::before{display:none!important}
+#demo .r54-auto-card>.r54-flow-field{position:absolute!important;z-index:0!important;inset:0!important;display:block!important;overflow:hidden!important;border-radius:inherit!important;pointer-events:none!important;-webkit-mask-image:linear-gradient(125deg,rgba(0,0,0,.12) 0%,rgba(0,0,0,.38) 34%,#000 70%)!important;mask-image:linear-gradient(125deg,rgba(0,0,0,.12) 0%,rgba(0,0,0,.38) 34%,#000 70%)!important}
+#demo .r54-auto-card>:not(.r54-flow-field){z-index:4!important}
+#demo .r54-flow{display:none!important}
+#demo .r61-cloud{position:absolute!important;display:block!important;max-width:none!important;pointer-events:none!important;will-change:transform;backface-visibility:hidden}
+#demo .r61-cloud-a{right:-38%!important;bottom:-265%!important;width:120%!important;height:430%!important;opacity:.9;animation:r61-cloud-a 13s ease-in-out infinite alternate}
+#demo .r61-cloud-b{right:-72%!important;bottom:-330%!important;width:135%!important;height:500%!important;opacity:0;animation:r61-cloud-b 17s ease-in-out -4s infinite alternate}
+#demo .r61-cloud-c{right:-55%!important;bottom:-325%!important;width:132%!important;height:490%!important;opacity:0;animation:r61-cloud-c 19s ease-in-out -7s infinite alternate}
+#demo .r54-expression .r61-cloud-b,#demo .r54-expression .r61-cloud-c{opacity:.72}
+#demo .r54-expression{background:#fff1f3!important;border-color:rgba(190,112,155,.16)!important}
+#demo .r54-expression>.r80-figma-cloud{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;background:linear-gradient(108deg,#fff1f3 0%,#fff1f3 34%,#f2e9f6 48%,#d6c5ea 60%,#a87bd6 76%,#85279c 100%)!important;filter:none!important;-webkit-mask-image:none!important;mask-image:none!important;animation:none!important}
+#demo .r54-expression>.r80-figma-cloud::before,#demo .r54-expression>.r80-figma-cloud::after{position:absolute;display:block;pointer-events:none;content:"";will-change:transform}
+#demo .r54-expression>.r80-figma-cloud::before{right:-34%;bottom:-135%;width:118%;height:260%;border-radius:50%;background:radial-gradient(ellipse at center,rgba(111,74,183,.42) 0%,rgba(130,91,198,.24) 36%,rgba(130,91,198,0) 72%);filter:blur(17px);animation:r83-cloud-primary 15s ease-in-out infinite alternate}
+#demo .r54-expression>.r80-figma-cloud::after{right:-15%;bottom:-155%;width:88%;height:260%;border-radius:50%;background:radial-gradient(ellipse at center,rgba(80,40,137,.34) 0%,rgba(103,56,160,.18) 42%,rgba(103,56,160,0) 74%);filter:blur(20px);animation:r83-cloud-secondary 19s ease-in-out -6s infinite alternate}
+#demo .r80-cloud{display:none!important}
+#demo .r80-cloud-base{right:-34%!important;bottom:-292%!important;width:126%!important;height:420%!important;opacity:.18!important;filter:blur(22px) saturate(.7);animation:r80-base-drift 24s ease-in-out infinite alternate!important}
+#demo .r80-cloud-pink{right:-50%!important;bottom:-330%!important;width:128%!important;height:480%!important;opacity:.12!important;animation:r80-pink-drift 22s ease-in-out -8s infinite alternate!important}
+#demo .r80-cloud-indigo{right:-58%!important;bottom:-318%!important;width:134%!important;height:470%!important;opacity:.26!important;filter:brightness(1.3) saturate(.7);mix-blend-mode:screen;animation:r80-indigo-drift 18s ease-in-out -3s infinite alternate!important}
+#demo .r80-cloud-purple{right:-42%!important;bottom:-325%!important;width:132%!important;height:490%!important;opacity:.9!important;filter:saturate(.9) brightness(1.02);animation:r80-purple-drift 16s ease-in-out -6s infinite alternate!important}
+@keyframes r80-base-drift{from{transform:translate3d(7%,2%,0) rotate(-5deg) scale(1.02)}to{transform:translate3d(-13%,-3%,0) rotate(4deg) scale(1.08)}}
+@keyframes r80-pink-drift{from{transform:translate3d(4%,1%,0) rotate(5deg)}to{transform:translate3d(-15%,-4%,0) rotate(-5deg) scale(1.06)}}
+@keyframes r80-indigo-drift{from{transform:translate3d(8%,2%,0) rotate(-6deg) scale(1.02)}to{transform:translate3d(-14%,4%,0) rotate(5deg) scale(1.09)}}
+@keyframes r80-purple-drift{from{transform:translate3d(10%,-2%,0) rotate(-5deg) scale(1.02)}to{transform:translate3d(-16%,4%,0) rotate(7deg) scale(1.08)}}
+@keyframes r83-cloud-primary{0%{transform:translate3d(10%,3%,0) rotate(-4deg) scale(1.02)}50%{transform:translate3d(-4%,-4%,0) rotate(1deg) scale(1.08)}100%{transform:translate3d(-18%,2%,0) rotate(6deg) scale(1.04)}}
+@keyframes r83-cloud-secondary{0%{transform:translate3d(-12%,2%,0) rotate(5deg) scale(1.06)}50%{transform:translate3d(5%,-3%,0) rotate(-2deg) scale(1)}100%{transform:translate3d(16%,3%,0) rotate(-7deg) scale(1.08)}}
+
+/* Three-pixel outline for the live pumping vessels. */
+#demo .v4-control .c32-vessel::after{position:absolute;z-index:7;inset:0;display:block;background:#ee9ca7;content:"";-webkit-mask-image:url('./assets/figma-control-r32/vessel-l.svg'),url('./assets/figma-control-r32/vessel-l.svg');-webkit-mask-position:center,center;-webkit-mask-size:100% 100%,calc(100% - 4px) calc(100% - 4px);-webkit-mask-repeat:no-repeat,no-repeat;-webkit-mask-composite:xor;mask-image:url('./assets/figma-control-r32/vessel-l.svg'),url('./assets/figma-control-r32/vessel-l.svg');mask-position:center,center;mask-size:100% 100%,calc(100% - 4px) calc(100% - 4px);mask-repeat:no-repeat,no-repeat;mask-composite:exclude;pointer-events:none}
+#demo .v4-control .c32-right::after{transform:scaleX(-1)}
+@keyframes r73-expression-field{0%{transform:translate3d(3%,3%,0) rotate(-2deg) scale(1.04)}50%{transform:translate3d(-3%,-2%,0) rotate(1deg) scale(1.08)}100%{transform:translate3d(-8%,2%,0) rotate(3deg) scale(1.03)}}
+#demo .r55-program-flow .r61-cloud-a{bottom:-178%!important;height:330%!important}
+#demo .r55-program-flow .r61-cloud-b,#demo .r55-program-flow .r61-cloud-c{bottom:-218%!important;height:390%!important}
+#demo .r54-auto-card .v4-auto-content,#demo .r54-auto-card .v4-auto-line{z-index:3!important}
+#demo .r54-auto-card .v4-auto-line{color:#fff!important;text-shadow:0 1px 3px rgba(62,0,16,.16)}
+#demo .r54-auto-card .v4-time{font-style:normal!important;font-variant-numeric:tabular-nums!important;font-family:var(--font,Arial),sans-serif!important;font-weight:500!important}
+#demo .r54-mode-icon{display:block!important;width:18px!important;height:18px!important;flex:0 0 18px!important;object-fit:contain!important}
+#demo .r54-expression .r54-mode-icon{width:14px!important;height:18px!important;flex-basis:14px!important;object-fit:contain!important}
+@keyframes r61-cloud-a{0%{transform:translate3d(9%,4%,0) rotate(-7deg) scale(1.02)}50%{transform:translate3d(-6%,-3%,0) rotate(1deg) scale(1.08)}100%{transform:translate3d(-20%,2%,0) rotate(8deg) scale(1.04)}}
+@keyframes r61-cloud-b{0%{transform:translate3d(-14%,3%,0) rotate(6deg) scale(1.08)}50%{transform:translate3d(4%,-4%,0) rotate(-2deg) scale(1)}100%{transform:translate3d(18%,2%,0) rotate(-8deg) scale(1.1)}}
+@keyframes r61-cloud-c{0%{transform:translate3d(12%,-2%,0) rotate(-4deg)}100%{transform:translate3d(-16%,4%,0) rotate(7deg)}}
+
+/* Exact Figma 59:3083 two-row auto card layout. */
+#demo .v4-auto-card.r54-auto-card:not(.r55-program-flow){display:block!important;width:100%!important;height:90px!important;min-height:90px!important;padding:16px 20px!important;border:.3px solid pink!important;border-radius:24px!important;box-shadow:0 4px 12px rgba(0,0,0,.02)!important}
+#demo .v4-auto-card.r54-auto-card:not(.r55-program-flow) .v4-auto-content{position:absolute!important;z-index:4!important;top:16px!important;right:20px!important;left:20px!important;display:flex!important;height:22px!important;align-items:center!important;justify-content:space-between!important;margin:0!important;padding:0!important}
+#demo .v4-auto-card.r54-auto-card:not(.r55-program-flow) .v4-auto-title{display:flex!important;align-items:center!important;gap:10px!important;height:22px!important;color:#3e0010!important;font:500 14px/18px Arial,sans-serif!important;letter-spacing:.28px!important;white-space:nowrap!important}
+#demo .v4-auto-card.r54-auto-card:not(.r55-program-flow) .v4-time{display:inline-flex!important;height:22px!important;align-items:center!important;margin:0!important;padding:0 8px!important;border:1px solid rgba(62,0,16,.12)!important;border-radius:8px!important;background:rgba(255,255,255,.18)!important;color:#643541!important;font:500 12px/18px Arial,sans-serif!important;letter-spacing:.24px!important}
+#demo .v4-auto-card.r54-auto-card:not(.r55-program-flow) .r2-card-arrow{position:relative!important;z-index:5!important;display:grid!important;width:18px!important;height:18px!important;place-items:center!important;margin:0!important;padding:0!important}
+#demo .v4-auto-card.r54-auto-card:not(.r55-program-flow) .v4-auto-line{position:absolute!important;z-index:4!important;right:20px!important;bottom:16px!important;display:flex!important;height:24px!important;align-items:center!important;gap:8px!important;margin:0!important;padding:0!important;color:#fff!important;font:400 14px/20px Arial,sans-serif!important;white-space:nowrap!important}
+#demo .r55-program-flow{overflow:hidden!important;isolation:isolate!important}
+#demo .r55-program-flow::before{z-index:0!important}
+#demo .r55-program-flow>.r54-flow-field{z-index:1!important}
+#demo .r55-program-flow .r49-boost__header,#demo .r55-program-flow .r49-boost__arrow,#demo .r55-program-flow .r49-boost__phase,#demo .r55-program-flow .r49-boost__switch,#demo .r55-program-flow .r49-boost__program{z-index:3!important}
+#demo .r55-program-flow .r43-boost-arrow{position:absolute!important;z-index:5!important;top:0!important;right:0!important;display:flex!important;width:18px!important;height:18px!important;min-width:18px!important;min-height:18px!important;align-items:center!important;justify-content:center!important;margin:0!important;padding:0!important;border:0!important;background:transparent!important;box-shadow:none!important;transform:none!important;font-size:0!important;line-height:0!important}
+#demo .r55-program-flow .r43-boost-arrow .r106-boost-chevron{display:block!important;width:6.25004px!important;height:11.2501px!important;min-width:6.25004px!important;min-height:11.2501px!important;max-width:6.25004px!important;max-height:11.2501px!important;margin:0!important;object-fit:fill!important;transform:none!important}
+
+/* Per-bowl live flow feedback. */
+#demo .v4-control{background-color:#f9f7f5!important;background-image:url('./assets/figma-r90-control-bg.svg')!important;background-repeat:no-repeat!important;background-position:center -565px!important;background-size:850px 880px!important}
+#demo .v4-control .c32-pump{overflow:visible!important}
+#demo .c32-vessel{overflow:visible!important}
+#demo .v4-control .c32-pump:has(.r97-leak-adjusting){isolation:isolate!important}
+#demo .r97-leak-guide{position:absolute;z-index:1;top:-22px;left:10px;display:block;width:142px;height:142px;object-fit:contain;pointer-events:none}
+#demo .v4-control .c32-vessel.r97-leak-adjusting{z-index:2;transform-origin:50% 68%;animation:r97-leak-angle 2.25s infinite!important;will-change:transform}
+@keyframes r97-leak-angle{0%{transform:rotate(23deg);animation-timing-function:cubic-bezier(.2,.82,.28,1)}68%{transform:rotate(0deg);animation-timing-function:cubic-bezier(.75,0,1,.2)}100%{transform:rotate(23deg)}}
+#demo .r60-flow-readout{position:absolute;z-index:8;top:-25px;left:50%;display:flex;box-sizing:border-box;align-items:center;justify-content:center;gap:3px;width:75px;height:20px;padding:1px 6px;border:0!important;border-radius:296px;background:rgba(255,255,255,.62)!important;box-shadow:0 8px 8px rgba(0,0,0,.04)!important;color:rgba(36,15,27,.52);font:400 12px/18px Arial,sans-serif;letter-spacing:.24px;opacity:1;transform:translate3d(-50%,0,0);backface-visibility:hidden;contain:paint;filter:none!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;animation:none!important;transition:opacity .28s ease,transform .28s ease}
+#demo .r60-flow-readout b{color:inherit;font:inherit;font-variant-numeric:tabular-nums;text-align:right}
+#demo .r60-flow-readout em{color:inherit;font:inherit;font-style:normal}
+#demo .r60-flow-readout.r60-flow-active{background:rgba(255,255,255,.62)!important;box-shadow:0 8px 8px rgba(0,0,0,.04)!important}
+#demo .r53-smooth-trend svg .r102-current-point{fill:#85001f!important;stroke:#fff!important;stroke-width:2px!important;vector-effect:non-scaling-stroke}
+#demo .v4-control.has-c36-notice .r60-flow-readout{opacity:0;transform:translate3d(-50%,13px,0);animation:none!important}
+@keyframes r69-flow-show{from{opacity:0;transform:translate(-50%,14px)}to{opacity:1;transform:translate(-50%,0)}}
+@keyframes r69-flow-hide{from{opacity:1;transform:translate(-50%,0)}to{opacity:0;transform:translate(-50%,13px)}}
+
+/* Keep the warm notification wash local to the notification copy. Earlier
+   rounds stretched this layer over the whole control page. */
+#demo .v4-control.has-c36-notice::before{top:0!important;right:0!important;bottom:0!important;left:0!important;width:100%!important;height:100%!important;background-color:#ffe0dc!important;background-image:url('./assets/figma-r105-notice-page-bg.png')!important;background-repeat:no-repeat!important;background-position:center -100px!important;background-size:100% calc(100% + 100px)!important;clip-path:none!important;border-radius:0!important;opacity:1!important;pointer-events:none!important}
+#demo .v4-control.has-c36-notice:not(:has(.r72-leak-notice)) .c36-notice{top:116px!important;min-height:55px!important}
+#demo .v4-control.has-c36-notice:not(:has(.r72-leak-notice)) .c36-notice p{max-width:300px!important;color:#795d50!important;font:500 12px/18px Arial,sans-serif!important}
+#demo .v4-control.has-c36-notice:has(.r72-leak-notice)::before{display:none!important}
+
+/* Figma 60:5908 — transient air-leak / seal-recovered notification. */
+#demo .r72-leak-notice{position:absolute!important;z-index:12!important;top:63px!important;right:auto!important;left:50%!important;display:block!important;width:246px!important;height:66px!important;min-height:66px!important;padding:0!important;border:0!important;border-radius:24px!important;background:rgba(255,255,255,.68)!important;box-shadow:0 8px 18px rgba(36,15,27,.08)!important;text-align:left!important;transform-origin:50% 42%!important;backdrop-filter:blur(18px) saturate(1.08)!important;-webkit-backdrop-filter:blur(18px) saturate(1.08)!important;overflow:hidden!important;pointer-events:none!important;animation:r72-leak-enter .42s cubic-bezier(.2,.9,.26,1.18) both!important}
+#demo .r72-leak-notice.r72-closing{animation:r72-leak-exit .34s cubic-bezier(.55,0,.8,.35) both!important}
+#demo .v4-control.has-c36-notice:has(.r72-leak-notice) .v4-top>h1{visibility:hidden!important;opacity:0!important}
+#demo .r72-leak-stage{position:absolute;inset:0;display:flex;box-sizing:border-box;flex-direction:column;gap:2px;padding:13px;color:#240f1b}
+#demo .r72-leak-line{position:relative;display:flex;width:220px;height:18px;align-items:center;gap:10px;padding-right:30px;box-sizing:border-box;white-space:nowrap}
+#demo .r72-leak-line b{display:block;overflow:hidden;max-width:145px;font:500 12px/18px Arial,sans-serif;letter-spacing:.12px;text-overflow:ellipsis;white-space:nowrap}
+#demo .r72-leak-stage>small{display:block;overflow:hidden;width:220px;color:rgba(36,15,27,.6);font:400 12px/18px Arial,sans-serif;letter-spacing:0;text-overflow:clip;white-space:nowrap}
+#demo .r72-leak-line img{position:absolute;top:0;right:0;display:block;width:18px;height:18px;object-fit:contain}
+#demo .r72-alert-mark,#demo .r72-check-mark{display:grid;width:18px;height:18px;flex:0 0 18px;place-items:center;border-radius:50%;color:#fff;font:700 12px/18px Arial,sans-serif;font-style:normal}
+#demo .r72-alert-mark{background:#ed8b29}
+#demo .r72-check-mark{background:#17213c}
+#demo .r72-up-caret{position:relative;display:block;width:9px;height:9px;flex:0 0 9px;margin-left:-6px;overflow:hidden;color:transparent;font-size:0}
+#demo .r72-up-caret::before{position:absolute;top:3px;left:1px;width:6px;height:6px;border-top:1.5px solid #240f1b;border-left:1.5px solid #240f1b;content:"";transform:rotate(45deg)}
+#demo .r72-leak-warning{opacity:1;transform:translateY(0) rotateX(0)}
+#demo .r72-leak-recovered{opacity:0;transform:translateY(18px) rotateX(-18deg)}
+#demo .r72-recovered .r72-leak-warning{display:none!important;opacity:0!important}
+#demo .r72-recovered .r72-leak-recovered{animation:r72-label-in .5s .08s cubic-bezier(.2,.85,.25,1) both}
+@keyframes r72-leak-enter{from{opacity:0;transform:translateX(-50%) scale(.72)}to{opacity:1;transform:translateX(-50%) scale(1)}}
+@keyframes r72-leak-exit{from{opacity:1;transform:translateX(-50%) scale(1)}to{opacity:0;transform:translateX(-50%) scale(.72)}}
+@keyframes r72-label-out{from{opacity:1;transform:translateY(0) rotateX(0)}to{opacity:0;transform:translateY(-18px) rotateX(18deg)}}
+@keyframes r72-label-in{from{opacity:0;transform:translateY(18px) rotateX(-18deg)}to{opacity:1;transform:translateY(0) rotateX(0)}}
+@media (prefers-reduced-motion:reduce){#demo .r72-leak-notice,#demo .r72-leak-stage{animation-duration:.01ms!important;animation-delay:0s!important}}
+@media (prefers-reduced-motion:reduce){#demo .v4-control .c32-vessel.r97-leak-adjusting{animation:none!important}}
+@media (prefers-reduced-motion:reduce){#demo .r80-cloud,#demo .r80-figma-cloud::before,#demo .r80-figma-cloud::after{animation:none!important}}
+
+/* Pumping amount sheet enters from the bottom instead of flashing in place. */
+#demo .v4-overlay:has(.v4-log){animation:r66-log-overlay-in .3s ease-out both}
+#demo .v4-overlay .v4-log:not(.r47-log){animation:r66-log-sheet-in .48s cubic-bezier(.22,.8,.28,1) both;will-change:transform,opacity}
+#demo .v4-overlay .r47-log{animation:r70-log-sheet-center-in .48s cubic-bezier(.22,.8,.28,1) both;will-change:transform,opacity}
+@keyframes r66-log-overlay-in{from{background-color:rgba(23,15,20,0);backdrop-filter:blur(0)}to{background-color:rgba(23,15,20,.54);backdrop-filter:blur(8px)}}
+@keyframes r66-log-sheet-in{from{transform:translate3d(0,100%,0);opacity:.82}to{transform:translate3d(0,0,0);opacity:1}}
+@keyframes r70-log-sheet-center-in{from{transform:translate3d(-50%,100%,0);opacity:.82}to{transform:translate3d(-50%,0,0);opacity:1}}
+
+/* Device-card battery: fill below the outline, percentage label above both. */
+#demo .d4-battery>i{isolation:isolate;overflow:visible!important}
+#demo .d4-battery>i>em{z-index:1!important;display:block!important;top:1px!important;left:1px!important;max-width:17px!important;height:8px!important;border-radius:2px!important;background:#770523!important;-webkit-mask:none!important;mask:none!important;opacity:1!important}
+#demo .d4-battery>i>img{z-index:2!important;pointer-events:none}
+#demo .d4-battery>i>strong{z-index:3!important}

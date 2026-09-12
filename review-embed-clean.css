@@ -1,0 +1,3 @@
+body.review-embedded .review-launcher,
+body.review-embedded .review-tools,
+body.review-embedded .review-editor { display:none!important; }

@@ -1,0 +1,15 @@
+/* Milk Boost control card — isolated from the generic auto-card styles. */
+#demo .r43-boost-card{position:relative;isolation:isolate;display:block!important;width:100%;height:130px!important;min-height:130px!important;overflow:hidden;padding:16px 20px!important;border:.3px solid #ffc5cf!important;border-radius:24px!important;background:#fff1f3!important;box-shadow:0 4px 12px rgba(62,0,16,.035)!important;color:#3e0010}
+#demo .r43-boost-card::before{position:absolute;z-index:-2;inset:0;background:linear-gradient(135deg,#fff3f4 0%,#fff0f3 52%,#ffdce9 100%);content:""}
+#demo .r43-boost-card::after{position:absolute;z-index:-1;right:-30%;bottom:-87%;width:126%;height:150%;border-radius:50%;filter:blur(16px);content:""}
+#demo .r43-boost-stimulation::after{background:radial-gradient(ellipse at center,#ff2c82 0%,#ff63a0 39%,rgba(255,114,169,0) 71%)}
+#demo .r43-boost-expression::after{background:radial-gradient(ellipse at 67% 50%,#8b22b3 0%,#bd43da 37%,rgba(180,63,210,0) 69%),radial-gradient(ellipse at 20% 55%,#fa527f 0%,rgba(250,82,127,0) 66%)}
+#demo .r43-boost-head{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;height:22px}
+#demo .r43-boost-title{display:flex;align-items:center;gap:8px;color:#3e0010;font-size:14px;font-weight:500;line-height:18px}
+#demo .r43-boost-time{display:inline-flex;align-items:center;height:22px;margin:0;padding:0 8px;border:1px solid rgba(62,0,16,.12);border-radius:8px;background:rgba(255,255,255,.32);color:#70404f;font-size:12px;font-style:normal;font-weight:500;line-height:20px}
+#demo .r43-boost-arrow{z-index:2;width:22px!important;height:22px!important;padding:2px!important;border:0!important;background:transparent!important}
+#demo .r43-boost-arrow img{display:block;width:18px!important;height:18px!important;transform:rotate(180deg)}
+#demo .r43-boost-phase{position:absolute;z-index:1;top:62px;right:20px;left:20px;margin:0;color:#fff;font-size:15px;font-weight:700;line-height:20px;text-align:center}
+#demo .r43-boost-switch{position:absolute;z-index:1;right:20px;bottom:16px;display:flex;align-items:center;gap:10px;color:#fff;font-size:14px;font-weight:400;line-height:20px}
+#demo .r43-boost-switch .v4-switch{flex:0 0 42px;background:#0e0e0e}
+#demo .r43-boost-switch .v4-switch i{transform:translateX(18px)}

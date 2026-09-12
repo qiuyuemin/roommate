@@ -1,0 +1,3 @@
+/* State updates re-render the prototype. Existing UI must not replay entry animations. */
+.f21-fit .v4-fit-chip{animation:none!important}
+.r2-auto-card,.c12-auto{animation:none!important}

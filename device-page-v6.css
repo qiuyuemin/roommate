@@ -1,0 +1,9 @@
+/* Home uses the two original Figma vectors as masks: there is no image box to tint. */
+.d4-tab-icon.home{background:transparent!important;background-image:none!important;box-shadow:none!important;isolation:isolate}
+.d4-tab-icon.home span.d4-home-outline,.d4-tab-icon.home span.d4-home-smile{position:absolute;display:block;background:#3e0010!important;box-shadow:none!important}
+.d4-tab-icon.home span.d4-home-outline{top:2.25px;left:2.25px;width:19.5002px;height:20.5px;mask:url('./assets/figma-device-r3/nav-v4-home-outline.svg') center/100% 100% no-repeat;-webkit-mask:url('./assets/figma-device-r3/nav-v4-home-outline.svg') center/100% 100% no-repeat}
+.d4-tab-icon.home span.d4-home-smile{top:16.375px;left:8.25px;width:7.5001px;height:2.5001px;mask:url('./assets/figma-device-r3/nav-v4-home-smile.svg') center/100% 100% no-repeat;-webkit-mask:url('./assets/figma-device-r3/nav-v4-home-smile.svg') center/100% 100% no-repeat}
+/* The earlier inactive-tab reset is more specific and was clearing the two
+   masked Home layers. Keep their Figma stroke visible when Device is active. */
+.d4-nav button:not(.active) .d4-tab-icon.home span.d4-home-outline,
+.d4-nav button:not(.active) .d4-tab-icon.home span.d4-home-smile{background-color:#3e0010!important}

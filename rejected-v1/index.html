@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Air 2 App Demo</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./runtime-patches.css">
+</head>
+<body>
+  <main class="prototype-shell">
+    <section id="app" class="app" aria-label="Air 2 App Demo"></section>
+  </main>
+  <aside id="review-toolbar" class="review-toolbar" hidden>
+    <strong>Review mode</strong>
+    <button id="mark-toggle" type="button">Mark screen</button>
+    <button id="copy-notes" type="button">Copy notes</button>
+    <button id="export-notes" type="button">Export JSON</button>
+    <button id="clear-notes" type="button">Clear</button>
+    <p>Tap a target to leave a note.</p>
+  </aside>
+  <div id="annotation-editor" class="annotation-editor" hidden>
+    <label for="annotation-text">Feedback</label>
+    <textarea id="annotation-text" rows="3" placeholder="Describe the change"></textarea>
+    <div><button id="annotation-cancel" type="button">Cancel</button><button id="annotation-save" type="button">Save</button></div>
+  </div>
+  <script src="./app.js"></script>
+  <script src="./interaction-fixes.js"></script>
+</body>
+</html>

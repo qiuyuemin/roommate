@@ -1,0 +1,104 @@
+/* Fixed control-page chrome with an independently scrolling control body. */
+#demo .v4-control {
+  overflow: hidden !important;
+}
+
+/*
+ * The former notice background PNG included a simulated rounded phone frame.
+ * Rebuild its soft wash as a full-bleed rectangle for presentation on a real
+ * handset, while retaining the existing notice fade animation.
+ */
+#demo .v4-control.has-c36-notice::before {
+  border-radius: 0 !important;
+  background-color: #f9f7f5 !important;
+  background-image: url('./assets/figma-r13173-notice-bg.png') !important;
+  background-repeat: no-repeat !important;
+  background-position: 0 0 !important;
+  background-size: 100% auto !important;
+  clip-path: none !important;
+}
+
+/* Keep the header and live pump readout above the moving control cards. */
+#demo .v4-control > .v4-bg,
+#demo .v4-control > .r2-expression-bg {
+  z-index: 1 !important;
+}
+
+#demo .v4-control > .v4-top,
+#demo .v4-control > .v4-switch-note {
+  z-index: 60 !important;
+}
+
+#demo .v4-control > .v4-pump-row {
+  z-index: 40 !important;
+}
+
+/*
+ * The mode, level and speed cards form the only vertical scroll surface.
+ * Extra bottom padding lets the final card clear the pinned action bar and
+ * provides a comfortable elastic tail on iOS.
+ */
+#demo .v4-control > .v4-controls {
+  z-index: 50 !important;
+  top: 287px !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  height: auto !important;
+  padding: 0 16px 176px !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  overscroll-behavior-y: contain;
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+#demo .v4-control > .v4-controls::-webkit-scrollbar {
+  display: none;
+}
+
+/* Stimulation keeps its content still while only the outside contour
+ * continuously expands and contracts. */
+#demo .v4-control .v4-auto-card.r54-stimulation,
+#demo .v4-control .r49-boost-card[data-r49-boost-state="stimulation"] {
+  transform: none !important;
+  will-change: box-shadow;
+  animation: air2-stimulation-outline-breathe .9s ease-in-out infinite alternate !important;
+}
+
+#demo .v4-control .v4-auto-card.r54-expression,
+#demo .v4-control .r49-boost-card[data-r49-boost-state="expression"] {
+  transform: none !important;
+  animation: none !important;
+}
+
+@keyframes air2-stimulation-outline-breathe {
+  from {
+    box-shadow: 0 0 0 0 rgba(255, 116, 148, .55);
+  }
+  to {
+    box-shadow: 0 0 0 6px rgba(255, 116, 148, .10);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #demo .v4-control .v4-auto-card.r54-stimulation,
+  #demo .v4-control .r49-boost-card[data-r49-boost-state="stimulation"] {
+    transform: none !important;
+    animation: none !important;
+  }
+}
+
+/* Start, finish and pause controls stay pinned above the scrolling body. */
+#demo .v4-control > .v4-start,
+#demo .v4-control > .v4-actions,
+#demo .v4-control > .v4-home-indicator {
+  z-index: 80 !important;
+}
+
+/* Modal log states cover the pinned controls together with the page. */
+#demo > .v4-overlay,
+#demo .v4-control + .v4-overlay {
+  z-index: 120 !important;
+}

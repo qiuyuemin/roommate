@@ -1,0 +1,8 @@
+/* The app keeps its Figma coordinate system, then scales as one phone canvas.
+   This makes every mobile viewport responsive without stretching individual UI pieces. */
+html,body{width:100%;height:100%;min-height:100%;margin:0;overflow:hidden}
+body{min-height:100dvh;display:grid;place-items:center;background:#eef3fb}
+#air2-phone-shell{position:relative;width:var(--air2-shell-width,calc(402px * var(--air2-scale,1)));height:var(--air2-shell-height,calc(874px * var(--air2-scale,1)));overflow:hidden}
+#demo{position:absolute!important;inset:0!important;width:402px!important;height:var(--air2-canvas-height,874px)!important;margin:0!important;overflow:hidden;background:#f9f7f5;transform:scale(var(--air2-scale,1));transform-origin:top left}
+@media (max-width:600px){body{display:block;background:#f9f7f5}#air2-phone-shell{position:fixed;top:0;left:0;margin:0;box-shadow:none!important}}
+@media (min-width:431px){#air2-phone-shell{box-shadow:0 20px 55px rgba(47,28,35,.12)}}

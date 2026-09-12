@@ -1,0 +1,11 @@
+/* Figma node 15:11529: 360px zone, two 180px cells, no layout shift between idle and running. */
+.v4-control .v4-pump-row{left:50%!important;right:auto!important;width:360px!important;transform:translateX(-50%)!important;justify-content:initial!important;gap:0!important}
+.v4-control .c32-pump{flex:0 0 180px!important;width:180px!important;height:180px!important}
+.v4-control .c32-vessel{position:absolute;top:0;display:block;width:91.2895px;height:93.4842px}
+.v4-control .c32-left{left:57.355px}.v4-control .c32-right{left:36.355px}
+.c32-base{position:absolute;z-index:1;inset:0;display:block;width:91.2895px;height:93.4842px}
+.c32-right .c32-base{transform:scaleX(-1);transform-origin:center}
+.c32-liquid-clip{position:absolute;z-index:2;inset:0;display:block;overflow:hidden;mask:url('./assets/figma-control-r32/vessel-l.svg') center/100% 100% no-repeat;-webkit-mask:url('./assets/figma-control-r32/vessel-l.svg') center/100% 100% no-repeat}
+.c32-right .c32-liquid-clip{transform:scaleX(-1);transform-origin:center}
+.c32-liquid{position:absolute;right:0;bottom:0;left:0;display:block;height:var(--liquid-height);overflow:hidden}.c32-liquid svg{position:absolute;z-index:1;top:-2px;left:-2%;width:104%;height:17px;fill:#fff;animation:c32-water-surface 1.8s ease-in-out infinite}.c32-liquid i{position:absolute;top:7px;right:0;bottom:0;left:0;background:#fff}
+.v4-control .c32-pump .amount{top:157px!important;color:#3e0010!important;font:500 14px/18px var(--font)!important}@keyframes c32-water-surface{0%,100%{transform:translateY(1px)}50%{transform:translateY(-2px)}}

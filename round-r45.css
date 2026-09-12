@@ -1,0 +1,4 @@
+/* Percentage-filled battery body: the visible fill is the numeric charge. */
+#demo .h7-battery.r43-dock-battery .r43-battery-body{overflow:hidden;border:1px solid rgba(255,255,255,.93);background:transparent!important}
+#demo .h7-battery.r43-dock-battery .r43-battery-body::before{position:absolute;z-index:0;top:0;bottom:0;left:0;width:var(--r44-level,0%);border-radius:1px;background:#fff;content:""}
+#demo .h7-battery.r43-dock-battery .r43-battery-body strong{position:relative;z-index:1;color:#24111c;text-shadow:0 0 1px rgba(255,255,255,.6)}

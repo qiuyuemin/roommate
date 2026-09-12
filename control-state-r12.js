@@ -1,0 +1,6 @@
+/* Global 0–15 level values. They are deliberately not changed by mode selection. */
+function c12Limit(){return 15;}
+function c12ClampLevels(){state.levelL=Math.max(0,Math.min(15,Number(state.levelL)||0));state.levelR=Math.max(0,Math.min(15,Number(state.levelR)||0));}
+function c12DosePosition(){return 1;}
+v4Track=function(side,value){var top=Math.round((15-value)/15*134);return `<section class="v4-level c12-level c12-15"><label>${side.toUpperCase()} Level</label><div class="v4-track" data-v4-drag="level" data-side="${side}"><span class="ticks">${'<i></i>'.repeat(16)}</span><span class="v4-level-value" style="top:${top}px">${value}</span></div></section>`;};
+v4Controls=function(){c12ClampLevels();return `<section class="v4-levels c12-levels c12-15">${v4Track('l',state.levelL)}<section class="v4-both"><label><img src="${r2Asset('control-link.svg')}" alt=""> Both</label><div class="v4-both-hit" data-v4-drag="both"><div class="v4-both-box"><span class="v4-both-lines">${'<i></i>'.repeat(7)}</span><i class="v4-both-knob"><img src="${reviewAsset('both-knob.svg')}" alt="Drag both levels"></i></div></div></section>${v4Track('r',state.levelR)}</section><section class="v4-speed"><h2>Speed</h2><div class="v4-speed-list">${[1,2,3,4,5].map(n=>`<button data-v4="speed" data-speed="${n}" class="${state.speed===n?'active':''}">${n}</button>`).join('')}</div></section>`;};

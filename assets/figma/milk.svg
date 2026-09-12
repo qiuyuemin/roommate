@@ -1,0 +1,28 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="122.79" height="139.408" viewBox="0 0 122.79 139.408" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Milk">
+<mask id="mask0_0_170" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="123" height="140">
+<path id="Subtract (Stroke)" d="M61.6346 0.000839456C47.4205 -0.0734051 32.9029 5.99804 20.5583 18.8752C8.37117 31.5882 1.24899 50.0195 0.149646 68.8187C-0.94977 87.6211 4.00082 106.259 15.2618 119.507C26.4374 132.655 43.7831 139.408 61.4001 139.408C79.0173 139.408 96.3638 132.655 107.539 119.507C118.8 106.26 123.742 87.6304 122.639 68.8315C121.535 50.0357 114.413 31.6007 102.24 18.8709C90.2235 6.30592 75.8584 0.0751761 61.6346 0.000839456Z" fill="black"/>
+</mask>
+<g mask="url(#mask0_0_170)">
+<g id="Rectangle 400770684" filter="url(#filter0_i_0_170)">
+<path d="M-4.0625 55.4032C62.4654 60.1559 60.2229 47.4347 127.498 55.4032V193.041H-4.0625V55.4032Z" fill="url(#paint0_linear_0_170)"/>
+</g>
+</g>
+</g>
+<defs>
+<filter id="filter0_i_0_170" x="-4.0625" y="52.7098" width="131.561" height="140.331" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset/>
+<feGaussianBlur stdDeviation="8.53333"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"/>
+<feBlend mode="normal" in2="shape" result="effect1_innerShadow_0_170"/>
+</filter>
+<linearGradient id="paint0_linear_0_170" x1="61.7179" y1="52.7098" x2="61.7179" y2="175.111" gradientUnits="userSpaceOnUse">
+<stop stop-color="white"/>
+<stop offset="1" stop-color="white" stop-opacity="0.8"/>
+</linearGradient>
+</defs>
+</svg>

@@ -1,0 +1,91 @@
+/* Figma node 47:14373 — Air 2 log-card correction. */
+.r47-log {
+  left:50%!important;
+  width:min(100%,402px)!important;
+  height:582px!important;
+  transform:translateX(-50%);
+}
+.r47-log .r47-log-amounts {
+  display:grid;
+  grid-template-columns:140px 48px 140px;
+  align-items:start;
+  justify-content:center;
+  margin:25px auto 0;
+}
+.r47-log-vessel {
+  position:relative;
+  width:140px;
+  height:160px;
+  margin:0 auto;
+  overflow:visible;
+  isolation:isolate;
+}
+.r47-log-base {
+  position:absolute;
+  z-index:1;
+  top:0;
+  left:4px;
+  width:132px;
+  height:149px;
+  object-fit:fill;
+}
+/* The milk SVG exported from Figma is a separate layer. Clip that original
+   layer instead of recreating its surface with a CSS ellipse. */
+.r47-log-liquid {
+  position:absolute;
+  z-index:2;
+  top:0;
+  left:4px;
+  display:block;
+  width:132px;
+  height:149px;
+  object-fit:fill;
+  pointer-events:none;
+  -webkit-clip-path:inset(calc(100% - var(--fill)) 0 0 0);
+  clip-path:inset(calc(100% - var(--fill)) 0 0 0);
+  transition:-webkit-clip-path .28s ease,clip-path .28s ease;
+  will-change:clip-path;
+}
+.r47-log-vessel button {
+  position:absolute;
+  z-index:4;
+  top:var(--knob-top);
+  left:46px;
+  display:flex;
+  width:48px;
+  height:48px;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:4px;
+  border:0;
+  border-radius:50%;
+  background:#fff;
+  box-shadow:0 10px 10px rgba(36,15,27,.12);
+  transform:translateY(-50%);
+  touch-action:none;
+  cursor:ns-resize;
+  user-select:none;
+}
+.r47-log-vessel button img { width:12px; height:12px; object-fit:contain; }
+.r47-log .v4-amount-number { min-width:130px; margin-top:20px; }
+.r47-measure {
+  display:flex;
+  height:160px;
+  flex-direction:column;
+  align-items:center;
+  justify-content:space-between;
+  color:#a69ba1;
+  font-size:10px;
+  line-height:1;
+}
+.r47-measure > span { display:flex; height:92px; flex-direction:column; justify-content:space-between; }
+.r47-measure i { display:block; width:8px; height:1px; border-radius:2px; background:#b8b0b4; }
+.r47-log .v4-duration b { display:flex; align-items:center; gap:8px; }
+/* Exported Figma chevron has a 13.5 × 7.5 viewBox; never stretch it to the old 24 px square. */
+.r47-log .v4-duration b img { display:block; width:14px!important; height:8px!important; flex:0 0 14px; object-fit:contain; }
+/* Preserve the original r37 exported wave liquid; only replace its invalid
+   mixed-unit height calculation with the pixel value supplied by log-r47.js. */
+.r47-log .r37-log-fill{z-index:2!important;top:1px!important;bottom:auto!important;height:149px!important;overflow:hidden!important;background:transparent!important;clip-path:path('M21.7782 20.2023C47.9416 -7.05753 84.3181 -6.40869 109.797 20.2023C135.818 47.3798 139.574 98.0257 115.268 126.587C90.9626 155.148 40.6123 155.148 16.3065 126.587C-7.99932 98.0257 -4.27742 47.3501 21.7782 20.2023Z')!important;transform:scale(.94)!important;transform-origin:50% 50%!important}
+.r47-log .r37-log-fill::after{position:absolute;z-index:1;top:calc(139px - var(--fill-px));right:0;bottom:0;left:0;border-radius:50% 50% 0 0/5px 5px 0 0;background:linear-gradient(180deg,#fff,rgba(255,255,255,.84));content:""}
+.r47-log .r37-log-fill img{display:none!important}

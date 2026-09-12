@@ -1,0 +1,2 @@
+/* Lock the four reviewed areas against legacy v4 selectors. */
+.d4-card-info small>b,.d4-card-info small .d4-battery>b{padding:0!important;background:transparent!important;color:#770523!important;opacity:.7!important}.d4-card-info small .d4-battery>i{opacity:1!important}.d4-card-info small .d4-battery>i>strong{color:#fff!important;opacity:1!important}.d4-nav button:not(.active),.d4-nav button:not(.active) .d4-tab-icon,.d4-nav button:not(.active) .d4-tab-icon img{background-color:transparent!important;box-shadow:none!important}

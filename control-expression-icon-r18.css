@@ -1,0 +1,7 @@
+/* The exported Expression glyph is 9 × 11. Do not force it into the generic square icon box. */
+.v4-mode-tabs button[data-mode="expression"] img{
+  width:13px!important;
+  height:auto!important;
+  aspect-ratio:9 / 11!important;
+  object-fit:contain!important;
+}

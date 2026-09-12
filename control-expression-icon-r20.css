@@ -1,0 +1,5 @@
+/* Scale the correct Figma glyph to the tab's optical icon size, without distortion. */
+.v4-mode-tabs button[data-mode="expression"] img{
+  width:10px!important;
+  height:13.288px!important;
+}

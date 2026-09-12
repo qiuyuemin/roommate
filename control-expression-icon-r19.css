@@ -1,0 +1,6 @@
+/* Preserve the exported Figma droplet's true 13.33 × 17.72 proportion. */
+.v4-mode-tabs button[data-mode="expression"] img{
+  width:13.3333px!important;
+  height:17.7175px!important;
+  object-fit:contain!important;
+}

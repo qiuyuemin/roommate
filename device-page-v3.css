@@ -1,0 +1,2 @@
+/* Device-page V3: retain Figma line assets at their real dimensions. */
+.d4-add img:first-child{width:17.5px;height:1.5px;transform:none}.d4-add img+img{width:17.5px;height:1.5px;transform:rotate(90deg)}.d4-chevron{top:27.25px;right:21.25px;width:7.5px;height:13.5px}.d4-tab-icon.home img:first-child{top:2.5px;left:3px;width:18px;height:19px}.d4-tab-icon.home img+img{top:17px;left:9px;width:6px;height:2px}
