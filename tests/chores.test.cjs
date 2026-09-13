@@ -1,0 +1,26 @@
+const fs=require('fs'),vm=require('vm'),assert=require('assert');
+const nodes={},listeners={};
+const node=()=>({innerHTML:'',textContent:'',value:'',style:{},showModal(){},close(){},remove(){},setAttribute(){},addEventListener(){}});
+const context={console,Date,Map,Number,String,Object,Math,JSON,location:{hash:'#chores'},localStorage:{getItem:()=>null,setItem:()=>{}},document:{querySelector:s=>nodes[s]??=node(),querySelectorAll:()=>[],createElement:node,body:{appendChild(){}},addEventListener:(event,fn)=>(listeners[event]??=[]).push(fn)},window:{},setTimeout:()=>0,clearTimeout(){}};
+vm.createContext(context);
+for(const file of ['finance.js','chores.js','app.js'])vm.runInContext(fs.readFileSync(file,'utf8'),context);
+vm.runInContext(`
+assert=(condition,message)=>{if(!condition)throw Error(message)};
+assert(mondayOf('2026-09-13')==='2026-09-07','week starts Monday');
+assert(weekDates('2026-09-07').length===7,'seven days');
+assert(choreAreas.length===4,'four household areas');
+const html=choreBoardView();
+assert((html.match(/class="day-head/g)||[]).length===7,'seven date headers');
+assert((html.match(/class="chore-cell/g)||[]).length===28,'complete weekly grid');
+assert(html.includes('排下周')&&html.includes('轮到我'),'board controls and personal count');
+const before=state.tasks.length;openChoreEditor(null,'客厅清洁',today());
+submitAction({get:key=>({area:'客厅清洁',person:'周舟',date:today(),status:'todo'})[key]});
+assert(state.tasks.length===before+1&&state.tasks.at(-1).area==='客厅清洁','assign from cell');
+const task=state.tasks.at(-1);openChoreEditor(task.id);submitAction({get:key=>({area:'客厅清洁',person:'周舟',date:today(),status:'done'})[key]});
+assert(task.done&&task.status==='done','edit card status');
+const currentStart=choreWeek,beforeCopy=state.tasks.length;copyChoreWeek();
+assert(choreWeek===addDays(currentStart,7),'advance to next week');
+assert(state.tasks.length>beforeCopy,'copy next week assignments');
+assert(state.tasks.slice(beforeCopy).every(t=>t.status==='todo'&&!t.done),'copied tasks reset status');
+console.log('PASS: Monday week, 7×4 board, controls, cell assignment, status editing, next-week rotation');
+`,context);
