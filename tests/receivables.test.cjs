@@ -20,6 +20,12 @@ const claim=receive[0],before=receivables(month).length;claim.bill.paid.push(cla
 check(receivables(month).length===before-1,'mark received removes pending claim');
 check(settlements(month).some(r=>r.kind==='received'&&r.person===claim.member),'mark received adds settled entry');
 check(commonFixedTypes.join(',')==='rent,electricity,water,gas,internet,property','only common fixed-cost entries are shown');
+document.querySelector('#bill-type').value='electricity';
+document.querySelector('#bill-title').value='自定义名称';
+syncBillTitle();
+check(document.querySelector('#bill-title').value==='电费','fixed-cost project syncs to bill name');
+document.querySelector('#bill-title').value='9 月电费';
+check(document.querySelector('#bill-title').value==='9 月电费','synced bill name remains editable');
 check(!financeView().includes('其他固定费用')&&!financeView().includes('水电燃气合并账单'),'legacy categories hidden from fixed-cost entry list');
 console.log('PASS: payables, per-roommate receivables, settled records, top placement, receive transition');
 `,context);
