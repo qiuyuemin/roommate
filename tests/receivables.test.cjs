@@ -1,0 +1,23 @@
+const fs=require('fs'),vm=require('vm');
+const nodes={};
+const node=()=>({innerHTML:'',textContent:'',value:'',style:{},showModal(){},close(){},remove(){},setAttribute(){},addEventListener(){}});
+const context={console,Date,Map,Number,String,Object,Math,JSON,location:{hash:'#bills'},localStorage:{getItem:()=>null,setItem:()=>{}},document:{querySelector:s=>nodes[s]??=node(),querySelectorAll:()=>[],createElement:node,body:{appendChild(){}},addEventListener(){}},window:{},setTimeout:()=>0,clearTimeout(){}};
+vm.createContext(context);
+for(const file of ['finance.js','chores.js','app.js'])vm.runInContext(fs.readFileSync(file,'utf8'),context);
+vm.runInContext(`
+check=(value,message)=>{if(!value)throw Error(message)};
+const month=state.bills.filter(b=>billMonth(b)===financeMonth);
+const payable=month.filter(b=>debt(b,state.user)>0);
+const receive=receivables(month);
+const settled=settlements(month);
+check(payable.reduce((sum,b)=>sum+debt(b,state.user),0)===122240,'current user payable total');
+check(receive.length===2&&receive.reduce((sum,r)=>sum+r.amount,0)===14330,'payer receivables split by roommate');
+check(settled.some(r=>r.kind==='received'&&r.person==='陈可'&&r.amount===7165),'received payment shown in settled');
+financeTab='receivable';const html=financeView();
+check(html.indexOf('待收款')<html.indexOf('固定居住费用'),'personal ledger appears before household categories');
+check(html.includes('来自')&&html.includes('data-receive'),'receivable counterpart and action shown');
+const claim=receive[0],before=receivables(month).length;claim.bill.paid.push(claim.member);
+check(receivables(month).length===before-1,'mark received removes pending claim');
+check(settlements(month).some(r=>r.kind==='received'&&r.person===claim.member),'mark received adds settled entry');
+console.log('PASS: payables, per-roommate receivables, settled records, top placement, receive transition');
+`,context);
