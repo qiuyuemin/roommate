@@ -19,5 +19,7 @@ check(html.includes('来自')&&html.includes('data-receive'),'receivable counter
 const claim=receive[0],before=receivables(month).length;claim.bill.paid.push(claim.member);
 check(receivables(month).length===before-1,'mark received removes pending claim');
 check(settlements(month).some(r=>r.kind==='received'&&r.person===claim.member),'mark received adds settled entry');
+check(commonFixedTypes.join(',')==='rent,electricity,water,gas,internet,property','only common fixed-cost entries are shown');
+check(!financeView().includes('其他固定费用')&&!financeView().includes('水电燃气合并账单'),'legacy categories hidden from fixed-cost entry list');
 console.log('PASS: payables, per-roommate receivables, settled records, top placement, receive transition');
 `,context);
