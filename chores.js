@@ -13,11 +13,20 @@ function initChores(){
 }
 function choreStatus(t){return t.status||(t.done?'done':'todo')}
 function nextChoreId(list){return Math.max(Date.now(),0,...list.map(item=>Number(item.id)||0))+1}
+function homeGreeting(hour=new Date().getHours()){
+  if(hour<5)return {title:'晚安',note:'夜深了，放轻声音，也照顾好自己。'};
+  if(hour<9)return {title:'早安',note:'新的一天，也把共同的空间照顾好。'};
+  if(hour<12)return {title:'上午好',note:'各自忙碌，也一起把家维持得清清爽爽。'};
+  if(hour<14)return {title:'中午好',note:'饭后随手收拾厨房，给下一位室友留一份清爽。'};
+  if(hour<18)return {title:'下午好',note:'忙完自己的事，也别忘了我们共同的小家。'};
+  if(hour<23)return {title:'晚上好',note:'回家放轻声音，给彼此留一点舒服的空间。'};
+  return {title:'晚安',note:'夜深了，公共区域请保持安静，好好休息。'};
+}
 function homeDashboardView(due,low){
   const todayTasks=state.tasks.filter(t=>t.date===today()),pending=todayTasks.filter(t=>choreStatus(t)==='todo'),mine=pending.filter(t=>t.person===state.user),done=todayTasks.filter(t=>choreStatus(t)==='done').length;
-  const monthBills=state.bills.filter(b=>(b.month||b.date.slice(0,7))===today().slice(0,7)),publicTotal=monthBills.reduce((sum,b)=>sum+b.amount,0),toReceive=receivables(state.bills).reduce((sum,item)=>sum+item.amount,0);
+  const monthBills=state.bills.filter(b=>(b.month||b.date.slice(0,7))===today().slice(0,7)),publicTotal=monthBills.reduce((sum,b)=>sum+b.amount,0),toReceive=receivables(state.bills).reduce((sum,item)=>sum+item.amount,0),greeting=homeGreeting(),dateLabel=new Date().toLocaleDateString('zh-CN',{month:'long',day:'numeric',weekday:'long'}).replace('星期',' · 星期');
   const attention=[...pending.map(t=>`<div class="home-action"><span class="home-action-icon chore">⌑</span><div><strong>${esc(t.title)}</strong><small>${esc(t.person)} · 今日值日</small></div>${t.person===state.user?`<button class="primary mini" data-task="${t.id}">完成打卡</button>`:'<a class="text-link" href="#chores">查看</a>'}</div>`),...low.map(i=>`<div class="home-action"><span class="home-action-icon stock">▤</span><div><strong>${esc(i.title)}</strong><small>仅剩 ${i.qty} ${esc(i.unit)}</small></div><button class="secondary mini" data-restock="${i.id}">登记补货</button></div>`)];
-  return heading(`早安，${esc(state.user)} ☀`,'今天，家的事情都在这里。')+`<section class="home-personal card"><div class="home-panel-head"><div><span>MY DAY</span><h2>我的今天</h2></div></div><div class="home-personal-body"><a href="#bills"><span>待付款</span><strong>${money(due)}</strong><small>账单明细 →</small></a><div class="home-divider"></div><a href="#bills"><span>待收款</span><strong>${money(toReceive)}</strong><small>查看收款 →</small></a></div>${mine.length?`<div class="home-mine-list">${mine.map(taskRow).join('')}</div>`:''}</section>
+  return `<div class="heading home-heading"><div><h1>${greeting.title}，${esc(state.user)} ${greeting.title==='晚安'?'☾':'☀'}</h1><p>${greeting.note}</p></div></div><section class="home-personal card"><div class="home-panel-head"><div><span>MY DAY</span><h2>${dateLabel}</h2></div></div><div class="home-personal-body"><a href="#bills"><span>待付款</span><strong>${money(due)}</strong><small>账单明细 →</small></a><div class="home-divider"></div><a href="#bills"><span>待收款</span><strong>${money(toReceive)}</strong><small>查看收款 →</small></a></div>${mine.length?`<div class="home-mine-list">${mine.map(taskRow).join('')}</div>`:''}</section>
   <section class="home-household card"><div class="home-panel-head"><div><span>ROOM 302</span><h2>全屋动态</h2></div><nav><a href="#bills">账单</a><a href="#chores">值日表</a><a href="#items">物品</a></nav></div><div class="home-overview"><div><span>本月公共支出</span><strong>${money(publicTotal)}</strong><small>${monthBills.length} 笔账单</small></div><div><span>今日值日</span><strong>${done}<i> / ${todayTasks.length}</i></strong><small>${pending.length?`${pending.length} 项待完成`:'全部完成'}</small></div><div><span>待补货</span><strong>${low.length}<i> 种</i></strong><small>${low.length?'需要处理':'库存充足'}</small></div></div><div class="home-attention"><div class="home-attention-head"><h3>${attention.length?'需要关注':'今天一切顺利'}</h3>${attention.length?`<span>${attention.length} 件事</span>`:'<span>暂无公共待办</span>'}</div>${attention.join('')}</div></section>`;
 }
 function choreBoardView(){
